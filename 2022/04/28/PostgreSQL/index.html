@@ -4,28 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>Rails default database SQLite3 switch to PostgreSQL | Hexo</title>
+  <title>Rails default database SQLite3 switch to PostgreSQL | inside out</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Switch SQLite3 to PostgreSQLDatabasedatabase 是資料庫，為什麼需要資料庫？因為 client - server 互動需要資料傳輸， client 傳送資料給 server ， server 向 client 顯示資料，或是儲存 client 傳送的資料。所以需要 database 儲存資料。 假如所有資料通通放在一起，沒有一個系統性的整理，會變得很可怕。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rails default database SQLite3 switch to PostgreSQL">
 <meta property="og:url" content="http://example.com/2022/04/28/PostgreSQL/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="inside out">
 <meta property="og:description" content="Switch SQLite3 to PostgreSQLDatabasedatabase 是資料庫，為什麼需要資料庫？因為 client - server 互動需要資料傳輸， client 傳送資料給 server ， server 向 client 顯示資料，或是儲存 client 傳送的資料。所以需要 database 儲存資料。 假如所有資料通通放在一起，沒有一個系統性的整理，會變得很可怕。">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/assets/post_img/sql-table-column-row.png">
-<meta property="og:image" content="http://example.com/assets/post_img/postgresql-database-create-success.png">
-<meta property="og:image" content="http://example.com/assets/post_img/sqlite3-default-switch-postgresql.png">
-<meta property="og:image" content="http://example.com/assets/post_img/clone-project.png">
-<meta property="og:image" content="http://example.com/assets/post_img/git-clone.png">
+<meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-04-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-18T04:32:37.038Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2022-10-18T04:39:41.739Z">
+<meta property="article:author" content="Kris">
 <meta property="article:tag" content="Data-Base">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets/post_img/sql-table-column-row.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="inside out" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -53,8 +47,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">inside out</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">web development</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -70,10 +68,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -104,7 +102,8 @@
       
         <h3 id="Switch-SQLite3-to-PostgreSQL"><a href="#Switch-SQLite3-to-PostgreSQL" class="headerlink" title="Switch SQLite3 to PostgreSQL"></a>Switch SQLite3 to PostgreSQL</h3><h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2><p>database 是資料庫，為什麼需要資料庫？因為 client - server 互動需要資料傳輸， client 傳送資料給 server ， server 向 client 顯示資料，或是儲存 client 傳送的資料。所以需要 database 儲存資料。</p>
 <p>假如所有資料通通放在一起，沒有一個系統性的整理，會變得很可怕。所以我們可以利用表格的方式整理散亂的資料，table 是資料表格，fields column 是”欄” ，record row 是資料”列”，視覺呈現會是這樣</p>
-<p><img src="/assets/post_img/sql-table-column-row.png" alt="table" title="table-column-row"></p>
+<!-- ![table](/assets/post_img/sql-table-column-row.png 'table-column-row') -->
+
 <h2 id="DBMS"><a href="#DBMS" class="headerlink" title="DBMS"></a>DBMS</h2><p>database management system 管理資料庫的系統。MySQL &#x2F; PostgreSQL</p>
 <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><p>操作資料庫的語言:SQL (Structured Query language)</p>
 <h2 id="實作"><a href="#實作" class="headerlink" title="實作"></a>實作</h2><p>Rails 預設使用 SQLite3 作為資料庫，主要是在開發，測試環境上，SQLite3 是一個輕量型的資料庫類型，但到正式產品上線，SQLite3 可能會不夠用。<br>實作情境大致分成三種，第一種：完美 PostgreSQL 專案建立，第二種：任性手動調整 SQLite3 -&gt; PostgreSQL ，跟最後一種：沒辦法就是要 PostgreSQL</p>
@@ -117,7 +116,8 @@
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">default:</span> <span class="meta">&amp;default</span></span><br><span class="line"><span class="attr">adapter:</span> <span class="string">postgresql</span></span><br><span class="line"><span class="attr">encoding:</span> <span class="string">unicode</span></span><br><span class="line"><span class="attr">pool:</span> &lt;%=<span class="language-ruby"> <span class="variable constant_">ENV</span>.fetch(<span class="string">&quot;RAILS_MAX_THREADS&quot;</span>) &#123; <span class="number">5</span> &#125; </span>%&gt;</span><br><span class="line"><span class="attr">development:</span></span><br><span class="line"><span class="string">&lt;&lt;:</span> <span class="meta">*default</span></span><br><span class="line"><span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line"><span class="string">&lt;&lt;:</span> <span class="meta">*default</span></span><br><span class="line"><span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line"><span class="attr">production:</span></span><br><span class="line"><span class="string">&lt;&lt;:</span> <span class="string">\*default</span></span><br><span class="line"><span class="attr">database:</span> <span class="string">myapp_production</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">password:</span> &lt;%=<span class="language-ruby"> <span class="variable constant_">ENV</span>[<span class="string">&#x27;MYAPP_DATABASE_PASSWORD&#x27;</span>] </span>%&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>最後，在用<code>rails db:create</code>的指令讓 rails 和資料庫做連結，</p>
-<p><img src="/assets/post_img/postgresql-database-create-success.png" alt="database_create" title="database_create"></p>
+<!-- ![database_create](/assets/post_img/postgresql-database-create-success.png 'database_create') -->
+
 <h1 id="手賤一點，原本是-SQLite3-轉到-PostgreSQL"><a href="#手賤一點，原本是-SQLite3-轉到-PostgreSQL" class="headerlink" title="手賤一點，原本是 SQLite3 轉到 PostgreSQL"></a>手賤一點，原本是 SQLite3 轉到 PostgreSQL</h1><p>以這個情境來說，是自己建立專案，獨立開發的狀態下，</p>
 <p>一樣， new 一個新的 Rails 專案，<br><code>rails new myapp_default_sqlite3</code></p>
 <p>config&#x2F;database.yml 檔案中可以看到 database 的設定狀態</p>
@@ -147,9 +147,11 @@
 <ul>
 <li><code>rails db:create</code></li>
 </ul>
-<p><img src="/assets/post_img/sqlite3-default-switch-postgresql.png" alt="database_create" title="database_create"></p>
+<!-- ![database_create](/assets/post_img/sqlite3-default-switch-postgresql.png 'database_create') -->
+
 <p>成功將 rails 和 PostgreSQL 的資料庫串起來了</p>
-<h1 id="第三種情境是沒有選擇，協作專案…"><a href="#第三種情境是沒有選擇，協作專案…" class="headerlink" title="第三種情境是沒有選擇，協作專案…"></a>第三種情境是沒有選擇，協作專案…</h1><p><img src="/assets/post_img/clone-project.png" alt="database_create" title="database_create"></p>
+<h1 id="第三種情境是沒有選擇，協作專案…"><a href="#第三種情境是沒有選擇，協作專案…" class="headerlink" title="第三種情境是沒有選擇，協作專案…"></a>第三種情境是沒有選擇，協作專案…</h1><!-- ![database_create](/assets/post_img/clone-project.png 'database_create') -->
+
 <p>database 的部分，不是自己建的，要怎麼跟自己本機端的 database 串在一起？</p>
 <p>這時候需要 PostgreSQL USER_NAME 跟 USER_PASSWORD ，讓這個 database 也可以在本機建立資料。</p>
 <p>首先找出自己的 PostgreSQL USER_NAME 跟 USER_PASSWORD ，我的方式是透過 <code>psql</code> 進到資料庫，接者打指令<code>\du</code>，可以列出使用者。</p>
@@ -181,7 +183,8 @@
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">adapter:</span> <span class="string">postgresql</span></span><br><span class="line"><span class="attr">encoding:</span> <span class="string">unicode</span></span><br><span class="line"><span class="attr">database:</span> <span class="string">blog_development</span></span><br><span class="line"><span class="attr">username:</span> <span class="string">YOUR_USERNAME</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">YOUR_PASSWORD</span></span><br><span class="line"><span class="attr">pool:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
 
 <p>最後一樣，<code>rails db:create</code>，看看有沒有成功的在本地的 PostgreSQL 建立 database</p>
-<p><img src="/assets/post_img/git-clone.png" alt="database_create" title="database_create"></p>
+<!-- ![database_create](/assets/post_img/git-clone.png 'database_create') -->
+
 <p>不過要是把 username &#x2F; password 直接寫在檔案裡，要是進行 Git 版控裡，或是放在 GitHub 中帳號密碼會外洩，這裡有另外一個 gem 套件， <a target="_blank" rel="noopener" href="https://github.com/bkeepers/dotenv">dotenv</a></p>
 <p>安裝步驟：</p>
 <ul>
@@ -204,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/28/PostgreSQL/" data-id="cl9dpmj9w0005n8j9ei3ebvyh" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/28/PostgreSQL/" data-id="cl9dpzfp20004xsj98dpwhs6v" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
       
       
       
@@ -246,7 +249,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">標籤</h3>
     <div class="widget">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
     </div>
@@ -256,7 +259,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
       <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 10px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 20px;">projects</a>
     </div>
@@ -265,9 +268,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -275,7 +278,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -312,7 +315,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 John Doe<br>
+      &copy; 2022 Kris<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -4,29 +4,24 @@
   <meta charset="utf-8">
   
   
-  <title>Routes / MVC | Hexo</title>
+  <title>Routes / MVC | inside out</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Routes、Model、View、Controller 的概念困擾很久，簡單來說： MVC 是軟體設計的一種模式(software design pattern)，可以參考Wiki 進入 MVC 世界之前，補了一些 Internet 與 Web 的運作邏輯， Internet 與 Web什麼是 internet? Internet 是 Web 的基礎，換句話說， Web 是建構在 Interne">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Routes &#x2F; MVC">
 <meta property="og:url" content="http://example.com/2022/04/20/Routes-MVC/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="inside out">
 <meta property="og:description" content="Routes、Model、View、Controller 的概念困擾很久，簡單來說： MVC 是軟體設計的一種模式(software design pattern)，可以參考Wiki 進入 MVC 世界之前，補了一些 Internet 與 Web 的運作邏輯， Internet 與 Web什麼是 internet? Internet 是 Web 的基礎，換句話說， Web 是建構在 Interne">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/assets/post_img/internet-schema-1.png">
-<meta property="og:image" content="http://example.com/assets/post_img/internet-schema-3.png">
-<meta property="og:image" content="http://example.com/assets/post_img/internet-schema-5.png">
-<meta property="og:image" content="http://example.com/assets/post_img/internet-schema-7.png">
-<meta property="og:image" content="http://example.com/assets/post_img/simple-client-server.png">
+<meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014617_1280.jpg">
 <meta property="article:published_time" content="2022-04-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-18T04:32:24.218Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2022-10-18T04:38:38.191Z">
+<meta property="article:author" content="Kris">
 <meta property="article:tag" content="concept">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets/post_img/internet-schema-1.png">
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014617_1280.jpg">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="inside out" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -54,8 +49,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">inside out</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">web development</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -71,10 +70,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -110,27 +109,30 @@
 <li><p><strong>Internet 是 Web 的基礎</strong>，換句話說， Web 是建構在 Internet 之上。</p>
 </li>
 <li><p><strong>Internet</strong> 是電腦與電腦之間的連結</p>
-<p><img src="/assets/post_img/internet-schema-1.png" alt="Route" title="resource: MDN"></p>
+<!-- ![Route](/assets/post_img/internet-schema-1.png 'resource: MDN') -->
+
 <p>圖片來源：MDN</p>
 </li>
 <li><p><strong>Route</strong> 是當電腦間的連結關係複雜時候的一種連結管理</p>
-<p><img src="/assets/post_img/internet-schema-3.png" alt="Route" title="resource: MDN"></p>
+<!-- ![Route](/assets/post_img/internet-schema-3.png 'resource: MDN') -->
+
 <p>圖片來源：MDN</p>
 </li>
 <li><p><strong>network</strong> 是 Routes 規模變大，連結 Routes 間的連結管理</p>
-<p><img src="/assets/post_img/internet-schema-5.png" alt="network" title="resource: MDN"></p>
+<!-- ![network](/assets/post_img/internet-schema-5.png 'resource: MDN') -->
+
 <p>圖片來源：MDN</p>
 </li>
 <li><p><strong>ISP(Internet Service Provider)</strong> 是 network 間的連結管理</p>
-<p><img src="/assets/post_img/internet-schema-7.png" alt="Internet" title="resource: MDN"></p>
-</li>
+<!-- ![Internet](/assets/post_img/internet-schema-7.png 'resource: MDN') --></li>
 </ul>
 <p>圖片來源：MDN</p>
 <ul>
 <li><strong>IP(Internet Protocol)</strong> 連結到 network 的識別，一連串數字組成 <code>142.250.190.78</code>，但我們連到網頁上不太可能會把一整串數字背出來，所以我們需要 <strong>domain name</strong>，<code>https://www.google.com.tw/</code></li>
 </ul>
 <h1 id="什麼是-Web"><a href="#什麼是-Web" class="headerlink" title="什麼是 Web?"></a>什麼是 Web?</h1><p>Web 是介於客戶(client)與主機(server)之間的關係， client 會向 server 發送請求，server 會回應 client 的需求，網路世界的供需關係。</p>
-<p><img src="/assets/post_img/simple-client-server.png" alt="Web" title="resource: pixabay"></p>
+<!-- ![Web](/assets/post_img/simple-client-server.png 'resource: pixabay') -->
+
 <p>MDN 關於 Web 的描述很深刻</p>
 <blockquote>
 <blockquote>
@@ -176,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/20/Routes-MVC/" data-id="cl9dpmj9x0006n8j93jpe5jwi" data-title="Routes / MVC" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/20/Routes-MVC/" data-id="cl9dpzfp30005xsj91rsv1iku" data-title="Routes / MVC" class="article-share-link">Share</a>
       
       
       
@@ -213,7 +215,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">標籤</h3>
     <div class="widget">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
     </div>
@@ -223,7 +225,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
       <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 10px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 20px;">projects</a>
     </div>
@@ -232,9 +234,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -242,7 +244,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -279,7 +281,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 John Doe<br>
+      &copy; 2022 Kris<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
