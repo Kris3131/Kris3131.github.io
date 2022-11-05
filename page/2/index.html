@@ -75,9 +75,64 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-HTML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2022-06-30-Node.jsLiveServer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/06/20/HTML/" class="article-date">
+    <a href="/2022/06/30/2022-06-30-Node.jsLiveServer/" class="article-date">
+  <time class="dt-published" datetime="2022-06-29T16:00:00.000Z" itemprop="datePublished">2022-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/30/2022-06-30-Node.jsLiveServer/">Node.js Server &gt;&gt;&gt; Express</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Node-js？"><a href="#Node-js？" class="headerlink" title="Node.js？"></a>Node.js？</h2><ul>
+<li>JavaScript 執行環境(run-time environment)</li>
+<li>讓 JavaScript 從瀏覽器解放</li>
+</ul>
+<h2 id="Node-js-server"><a href="#Node-js-server" class="headerlink" title="Node.js server"></a>Node.js server</h2><p>回傳 HTML &gt;&gt;&gt; Content-Type &gt;&gt;&gt; text&#x2F;html</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// include http module from Node.js</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// define server related variables</span></span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// HTTP status code</span></span><br><span class="line">  res.<span class="property">statusCode</span> = <span class="number">200</span>;</span><br><span class="line">  <span class="comment">// HTTP response Headers &gt;&gt;&gt; content-type</span></span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/plain&#x27;</span>);</span><br><span class="line">  <span class="comment">// HTTP response Body</span></span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&#x27;This is my first server created in Node.js&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// start and listen the server</span></span><br><span class="line">server.<span class="title function_">listen</span>(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`The server is listening on http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><ul>
+<li>JavaScript 後端框架</li>
+</ul>
+<h2 id="安裝方式"><a href="#安裝方式" class="headerlink" title="安裝方式"></a>安裝方式</h2><ul>
+<li><code>npm init</code> &#x2F; <code>npm init -y</code></li>
+<li><code>npm i express</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">&#x27;This is my first Express.js app&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="title function_">listen</span>(port, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Express is running on http://localhost:<span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/30/2022-06-30-Node.jsLiveServer/" data-id="cla3gg3bf0004cuja2o9uepi5" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2022-06-20-HTML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/20/2022-06-20-HTML/" class="article-date">
   <time class="dt-published" datetime="2022-06-19T16:00:00.000Z" itemprop="datePublished">2022-06-20</time>
 </a>
     
@@ -89,7 +144,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/06/20/HTML/">HTML 的 head 有些什麼</a>
+      <a class="p-name article-title" href="/2022/06/20/2022-06-20-HTML/">HTML 的 head 有些什麼</a>
     </h1>
   
 
@@ -124,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/20/HTML/" data-id="cla3ekejy0005t9jacgugctq4" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/20/2022-06-20-HTML/" data-id="cla3gg3bd0003cuja3c3ebcbo" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
       
       
       
@@ -138,9 +193,9 @@
 
 
   
-    <article id="post-PostgreSQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2022-04-28-PostgreSQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/28/PostgreSQL/" class="article-date">
+    <a href="/2022/04/28/2022-04-28-PostgreSQL/" class="article-date">
   <time class="dt-published" datetime="2022-04-27T16:00:00.000Z" itemprop="datePublished">2022-04-28</time>
 </a>
     
@@ -152,7 +207,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/28/PostgreSQL/">Rails default database SQLite3 switch to PostgreSQL</a>
+      <a class="p-name article-title" href="/2022/04/28/2022-04-28-PostgreSQL/">Rails default database SQLite3 switch to PostgreSQL</a>
     </h1>
   
 
@@ -267,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/28/PostgreSQL/" data-id="cla3ekejz0007t9jae4w02ajr" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/28/2022-04-28-PostgreSQL/" data-id="cla3gg3b80001cuja944u08a1" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
       
       
       
@@ -281,9 +336,9 @@
 
 
   
-    <article id="post-Routes-MVC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-2022-04-20-Routes-MVC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/04/20/Routes-MVC/" class="article-date">
+    <a href="/2022/04/20/2022-04-20-Routes-MVC/" class="article-date">
   <time class="dt-published" datetime="2022-04-19T16:00:00.000Z" itemprop="datePublished">2022-04-20</time>
 </a>
     
@@ -295,7 +350,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/04/20/Routes-MVC/">Routes / MVC</a>
+      <a class="p-name article-title" href="/2022/04/20/2022-04-20-Routes-MVC/">Routes / MVC</a>
     </h1>
   
 
@@ -379,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/20/Routes-MVC/" data-id="cla3ekek1000at9jabt0ugf1f" data-title="Routes / MVC" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/20/2022-04-20-Routes-MVC/" data-id="cla3gg3b10000cuja5m100vaq" data-title="Routes / MVC" class="article-share-link">Share</a>
       
       
       
@@ -443,23 +498,23 @@
       <ul>
         
           <li>
-            <a href="/2022/11/02/concept/">問題回顧(HTML/CSS)</a>
+            <a href="/2022/11/05/2022-11-05-open-source/">Open Source</a>
           </li>
         
           <li>
-            <a href="/2022/11/02/concept_javascript/">問題回顧(JavaScript)</a>
+            <a href="/2022/11/02/2022-11-02-concept/">問題回顧(HTML/CSS)</a>
           </li>
         
           <li>
-            <a href="/2022/10/20/AC-S3/">回顧 - 原來已經走了那麼遠了</a>
+            <a href="/2022/11/02/2022-11-02-concept_javascript/">問題回顧(JavaScript)</a>
           </li>
         
           <li>
-            <a href="/2022/10/20/tweets-project/">好！完成了 ! Tweets 專案</a>
+            <a href="/2022/10/20/2022-10-20-AC-S3/">回顧 - 原來已經走了那麼遠了</a>
           </li>
         
           <li>
-            <a href="/2022/09/30/AmazingTalker/">企業參訪：AmazingTalker</a>
+            <a href="/2022/10/20/2022-10-20-tweets-project/">好！完成了 ! Tweets 專案</a>
           </li>
         
       </ul>
