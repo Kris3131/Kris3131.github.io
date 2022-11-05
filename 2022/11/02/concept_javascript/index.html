@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>問題回顧(JavaScript) | inside out</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Q: primitive type &amp; object最後一行程式碼的輸出結果是什麼？請解釋這個結果是怎麼來的？ 1234var a &#x3D; [ 1, 2, 3 ];var b &#x3D; a;a.push(5);console.log(b)  A 最後一行程式碼的輸出結果  [1, 2, 3, 5]  請解釋這個結果是怎麼來的？主要是基本型別(primitive type)和物件(object)保存資">
+<meta property="og:type" content="article">
+<meta property="og:title" content="問題回顧(JavaScript)">
+<meta property="og:url" content="http://example.com/2022/11/02/concept_javascript/index.html">
+<meta property="og:site_name" content="inside out">
+<meta property="og:description" content="Q: primitive type &amp; object最後一行程式碼的輸出結果是什麼？請解釋這個結果是怎麼來的？ 1234var a &#x3D; [ 1, 2, 3 ];var b &#x3D; a;a.push(5);console.log(b)  A 最後一行程式碼的輸出結果  [1, 2, 3, 5]  請解釋這個結果是怎麼來的？主要是基本型別(primitive type)和物件(object)保存資">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-11-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-02T12:26:38.874Z">
+<meta property="article:author" content="Kris">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="inside out" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">inside out</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">web development</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-concept_javascript" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/02/concept_javascript/" class="article-date">
+  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">2022-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      問題回顧(JavaScript)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Q-primitive-type-amp-object"><a href="#Q-primitive-type-amp-object" class="headerlink" title="Q: primitive type &amp; object"></a>Q: primitive type &amp; object</h3><p>最後一行程式碼的輸出結果是什麼？請解釋這個結果是怎麼來的？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.<span class="title function_">push</span>(<span class="number">5</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
+
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><ol>
+<li>最後一行程式碼的輸出結果</li>
+</ol>
+<p><code>[1, 2, 3, 5]</code></p>
+<ol start="2">
+<li>請解釋這個結果是怎麼來的？<br>主要是基本型別(primitive type)和物件(object)保存資料方式不同(記憶體的儲存方式不同)，</li>
+</ol>
+<p>基本型別<br>保存資料的方式是：pass by value</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;hi&#x27;</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = <span class="string">&#x27;Hello, World&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一行程式碼，hi assign 給變數 a ，就像一個叫做 a 的盒子，裡面放 ‘hi’ 的值。<br>a 再 assign 給 b ，就像另外新增了 b 的盒子裡面裝著 a 的值。<br>當重新賦值給 a 時不會改變 b 盒子內的值。<br>物件<br>保存資料的方式是：pass by Reference</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.<span class="title function_">push</span>(<span class="number">5</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
+
+<p>當 a 把物件 assign 給 b ，指派的是參照位置(reference)，也就是 [1, 2, 3] 在記憶體的位置。<br>a 與 b 目前指向是同一個地方。<br>因此當 a 改變，b 也會隨著改變。</p>
+<h3 id="Q-Scope-amp-setTimeout"><a href="#Q-Scope-amp-setTimeout" class="headerlink" title="Q: Scope &amp; setTimeout"></a>Q: Scope &amp; setTimeout</h3><p>在以下程式碼中，console.log(i) 輸出結果是？請解釋這個輸出結果是怎麼來的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">  &#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外，如果想確保輸出結果如下圖，請問要如何修改程式？為什麼？</p>
+<blockquote>
+<p>0<br>1<br>2<br>3<br>4</p>
+</blockquote>
+<h1 id="A-1"><a href="#A-1" class="headerlink" title="A"></a>A</h1><ol>
+<li>console.log(i) 輸出結果是？</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<p>造成這個結果原因主要是：</p>
+<p><strong>var</strong><br><strong>非同步 setTimeout</strong></p>
+<p>變數看宣告的位置不同會有不同的作用範圍：全域、區域，而 var 不受限制。就算在區域中(block)中宣告，仍然會改變區塊外的變數，造成全域變數污染的狀況。<br>以題目來說非同步執行的特性，每一次的 setTimeout 都會將裡面的程式放進任務序列，要在 for 迴圈執行完畢後才執行 console.log(i)，此時的 var 已經執行到 5 ，因此在執行 setTimeout 的 callback 時在 console 顯示的值是 5。</p>
+<ol start="2">
+<li>如果想確保輸出結果如下圖，請問要如何修改程式？為什麼？<br>兩個方式，但比較建議使用第二種，將 var 改成 let<br>第一種，將 setTimeout 拿掉，直接執行 for 迴圈印出 console 內容。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二種，將宣告變數的 var ，改成 let ，以避免變數污染。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h3><p>請問下方三行程式碼各自在做什麼？</p>
+<p><code>function Person()&#123;&#125;</code><br><code>var person = Person()</code><br><code>var person = new Person()</code></p>
+<h3 id="A-2"><a href="#A-2" class="headerlink" title="A"></a>A</h3><p><code>function Person() &#123; &#125;</code>，宣告叫 Person 的 function<br><code>var person = Person()</code>，宣告 person 的變數，將 Person() 執行後的結果指派給 person<br><code>var person = new Person()</code>，宣告 person 的變數，將 new Person() 建立的物件實體指派給 person</p>
+<h3 id="Q-this"><a href="#Q-this" class="headerlink" title="Q: this"></a>Q: this</h3><p>下列程式碼會在 console 輸出什麼？為什麼？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myObject = &#123;</span><br><span class="line">  <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">  <span class="attr">func</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;outer func: this.foo = &#x27;</span>, <span class="variable language_">this</span>.<span class="property">foo</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;outer func: self.foo = &#x27;</span>, self.<span class="property">foo</span>);</span><br><span class="line">    (<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;inner func: this.foo = &#x27;</span>, <span class="variable language_">this</span>.<span class="property">foo</span>)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;inner func: self.foo = &#x27;</span>, self.<span class="property">foo</span>)</span><br><span class="line">    &#125;())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myObject.<span class="title function_">func</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-3"><a href="#A-3" class="headerlink" title="A"></a>A</h3><ol>
+<li>輸出結果</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">outer <span class="attr">func</span>: <span class="variable language_">this</span>.<span class="property">foo</span> =  bar</span><br><span class="line">outer <span class="attr">func</span>: self.<span class="property">foo</span> =  bar</span><br><span class="line">inner <span class="attr">func</span>: <span class="variable language_">this</span>.<span class="property">foo</span> =  <span class="literal">undefined</span></span><br><span class="line">inner <span class="attr">func</span>: self.<span class="property">foo</span> =  bar</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>為什麼<br>this 代表『誰呼叫這個函式』，<br>而這個『誰』是怎麼來的？依照不同的綁定(binding)的方式，<br><code>outer func: this.foo = bar</code><br>依題目為隱式綁定(implicit binding)，this 所指的是 myObject 的物件，因此可以看成 <code>myObject.foo = bar</code>。<br><code>outer func: self.foo = bar</code><br>依題目， this 指派給 self 變數，因此 self 也指向 myObject ，可以看成<code>myObject.foo = bar</code>。<br><code>inner func: this.foo = undefined</code><br>依題目為預設綁定，與前兩個情況不同的地方在於，this 都可以清楚的指到 myObject 物件，但依題目的情況， this 無法指到物件，因此 JavaScript 會直接綁定在 window 上成為全域物件。<br>而 window 沒有 foo 的變數，因此出現 undefined<br><code>inner func: self.foo = bar</code><br>第二個 function 中沒有 self 的變數，就會往外找。<br>在第一個 function 中找到 self 的變數，<code>const self = this， this = myObject</code> ，因此可以看成 myObject.foo &#x3D; bar</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/02/concept_javascript/" data-id="cla3ekek2000dt9ja03660u16" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/02/concept/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          問題回顧(HTML/CSS)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/20/AC-S3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">回顧 - 原來已經走了那麼遠了</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 10px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 20px;">projects</a> <a href="/tags/thoughts/" style="font-size: 10px;">thoughts</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/02/concept/">問題回顧(HTML/CSS)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/02/concept_javascript/">問題回顧(JavaScript)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/20/AC-S3/">回顧 - 原來已經走了那麼遠了</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/20/tweets-project/">好！完成了 ! Tweets 專案</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/30/AmazingTalker/">企業參訪：AmazingTalker</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Kris<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -75,6 +75,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/20/HTML/" class="article-date">
+  <time class="dt-published" datetime="2022-06-19T16:00:00.000Z" itemprop="datePublished">2022-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/20/HTML/">HTML 的 head 有些什麼</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="HTML-的-head-有什麼"><a href="#HTML-的-head-有什麼" class="headerlink" title="HTML 的 head 有什麼"></a>HTML 的 head 有什麼</h1><p>HTML 是網頁的架構，由語意標籤組成，這裡不會特別紀錄標籤，會把<strong>重點放在 head</strong>裡面有些什麼。<br>在紀錄 head 之前，會先說明 <!DOCTYPE html>、<html> 、<head>、<body> 是什麼<br><br></p>
+<h2 id="HTML-有些什麼？"><a href="#HTML-有些什麼？" class="headerlink" title="HTML 有些什麼？"></a>HTML 有些什麼？</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a><!DOCTYPE html></h3><p>文件的種類，告訴瀏覽器文件的種類是 HTML<br><br>為什麼需要告訴瀏覽器文件的種類？ 與瀏覽器渲染畫面的模式有關。<br><br>瀏覽器有三種渲染畫面的模式：</p>
+<ul>
+<li><strong>quirks mode</strong>、</li>
+<li><strong>almost standards mode</strong>、</li>
+<li><strong>standards mode</strong><br><br>確保瀏覽器在渲染畫面的時候是在正確模式下進行<br></li>
+</ul>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a><html></h3><ul>
+<li><html>標籤內包含整個頁面的內容</li>
+<li>又可以被稱為 root element<br></li>
+</ul>
+<h3 id="-2"><a href="#-2" class="headerlink" title=""></a><head></h3><p>標籤內的內容不會顯示給使用者看到，包含 HTML 的文件內容</p>
+<ul>
+<li><strong>title</strong></li>
+<li><strong>meta</strong></li>
+<li><strong>CSS &#x2F; JavaScript</strong></li>
+<li><strong>script</strong><br></li>
+</ul>
+<p>參考<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">MDN</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/20/HTML/" data-id="cla3ekejy0005t9jacgugctq4" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-PostgreSQL" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/28/PostgreSQL/" class="article-date">
@@ -204,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/28/PostgreSQL/" data-id="cl9zk0ye8000anljafo68dylf" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/28/PostgreSQL/" data-id="cla3ekejz0007t9jae4w02ajr" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
       
       
       
@@ -316,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/20/Routes-MVC/" data-id="cl9zk0ye70007nlja6l2f0dem" data-title="Routes / MVC" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/20/Routes-MVC/" data-id="cla3ekek1000at9jabt0ugf1f" data-title="Routes / MVC" class="article-share-link">Share</a>
       
       
       
@@ -367,7 +430,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -380,11 +443,15 @@
       <ul>
         
           <li>
-            <a href="/2022/10/20/AC-S3/">回顧 - 原來已經走了那麼遠了</a>
+            <a href="/2022/11/02/concept/">問題回顧(HTML/CSS)</a>
           </li>
         
           <li>
-            <a href="/2022/10/20/concept/">問題回顧(HTML/CSS)</a>
+            <a href="/2022/11/02/concept_javascript/">問題回顧(JavaScript)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/20/AC-S3/">回顧 - 原來已經走了那麼遠了</a>
           </li>
         
           <li>
@@ -393,10 +460,6 @@
         
           <li>
             <a href="/2022/09/30/AmazingTalker/">企業參訪：AmazingTalker</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/17/Git/">Git</a>
           </li>
         
       </ul>

@@ -75,6 +75,153 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-concept" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/02/concept/" class="article-date">
+  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">2022-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/02/concept/">問題回顧(HTML/CSS)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h3><p>要在 HTML 檔案中使用<code>&lt;script&gt;</code> 標籤載入 JavaScript 檔案時，一個常見的作法是「把 <code>&lt;script&gt; </code>標籤放在 <code>&lt;body&gt;</code> 的最底部 (也就是 <code>&lt;/body&gt; </code>前)」。請問：</p>
+<ol>
+<li>這樣做的話，在瀏覽器渲染流程中，會在什麼時機點載入到 JavaScript 程式碼？為什麼需要這樣做？</li>
+<li>如果我們想要「在 DOM 生成的同時，一併載入 JavaScript」，針對 script 標籤還有什麼其他的處理作法？</li>
+</ol>
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><ol>
+<li><p>瀏覽器渲染流程中，會在什麼時機點載入到 JavaScript 程式碼？<br>JavaScript 無法直接操作 HTML 。<br>瀏覽器渲染(render)畫面，會由上到下解析 HTML 轉成 JavaScript 可以操作的物件模型 DOM<br>JavaScript 透過 DOM API 的方式完整操作 HTML 的內容<br>將 <code>&lt;script&gt;</code> 放置在 <code>&lt;body&gt;</code> 最底部的主要原因是：確保 HTML DOM 已經完全被解析。<br>若沒有放是在<code>&lt;body&gt;</code>最底部，當瀏覽器碰到 <code>&lt;script&gt;</code> 會暫停解析 DOM ，先下載與執行 <code>&lt;script&gt;</code> ，造成：<br>等待下載 <code>&lt;script&gt; </code>的時間，網頁繪製暫停，會造成頁面空白，影響使用者體驗<br>DOM 沒有解析完成，卻已經執行 script 中需要操作的 HTML 元素</p>
+</li>
+<li><p>「在 DOM 生成的同時，一併載入 JavaScript」，針對 script 標籤還有什麼其他的處理作法？<br>defer<br>async<br>與傳統 <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 不同的的是：<br>兩種做法都是在 HTML 解析成 DOM 的過程中進行下載，不會造成網頁繪製過程暫停<br>defer 與 async 不同的是在多個 script 檔案的順序：</p>
+</li>
+</ol>
+<p>不論下載進度如何，defer 可以確保執行順序，例如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;app1.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;app2.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>執行順序由上至下，app1.js &gt; app2.js<br>async 則是依照下載速度，先下載完的 script 先執行。<br>使用情境上：defer 適用於 script 兼有相依性，async 則相反。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/02/concept/" data-id="cla3ekek1000bt9jac1o82tn4" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-concept_javascript" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/02/concept_javascript/" class="article-date">
+  <time class="dt-published" datetime="2022-11-01T16:00:00.000Z" itemprop="datePublished">2022-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/02/concept_javascript/">問題回顧(JavaScript)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Q-primitive-type-amp-object"><a href="#Q-primitive-type-amp-object" class="headerlink" title="Q: primitive type &amp; object"></a>Q: primitive type &amp; object</h3><p>最後一行程式碼的輸出結果是什麼？請解釋這個結果是怎麼來的？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.<span class="title function_">push</span>(<span class="number">5</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
+
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><ol>
+<li>最後一行程式碼的輸出結果</li>
+</ol>
+<p><code>[1, 2, 3, 5]</code></p>
+<ol start="2">
+<li>請解釋這個結果是怎麼來的？<br>主要是基本型別(primitive type)和物件(object)保存資料方式不同(記憶體的儲存方式不同)，</li>
+</ol>
+<p>基本型別<br>保存資料的方式是：pass by value</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;hi&#x27;</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = <span class="string">&#x27;Hello, World&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一行程式碼，hi assign 給變數 a ，就像一個叫做 a 的盒子，裡面放 ‘hi’ 的值。<br>a 再 assign 給 b ，就像另外新增了 b 的盒子裡面裝著 a 的值。<br>當重新賦值給 a 時不會改變 b 盒子內的值。<br>物件<br>保存資料的方式是：pass by Reference</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.<span class="title function_">push</span>(<span class="number">5</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
+
+<p>當 a 把物件 assign 給 b ，指派的是參照位置(reference)，也就是 [1, 2, 3] 在記憶體的位置。<br>a 與 b 目前指向是同一個地方。<br>因此當 a 改變，b 也會隨著改變。</p>
+<h3 id="Q-Scope-amp-setTimeout"><a href="#Q-Scope-amp-setTimeout" class="headerlink" title="Q: Scope &amp; setTimeout"></a>Q: Scope &amp; setTimeout</h3><p>在以下程式碼中，console.log(i) 輸出結果是？請解釋這個輸出結果是怎麼來的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">  &#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另外，如果想確保輸出結果如下圖，請問要如何修改程式？為什麼？</p>
+<blockquote>
+<p>0<br>1<br>2<br>3<br>4</p>
+</blockquote>
+<h1 id="A-1"><a href="#A-1" class="headerlink" title="A"></a>A</h1><ol>
+<li>console.log(i) 輸出結果是？</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<p>造成這個結果原因主要是：</p>
+<p><strong>var</strong><br><strong>非同步 setTimeout</strong></p>
+<p>變數看宣告的位置不同會有不同的作用範圍：全域、區域，而 var 不受限制。就算在區域中(block)中宣告，仍然會改變區塊外的變數，造成全域變數污染的狀況。<br>以題目來說非同步執行的特性，每一次的 setTimeout 都會將裡面的程式放進任務序列，要在 for 迴圈執行完畢後才執行 console.log(i)，此時的 var 已經執行到 5 ，因此在執行 setTimeout 的 callback 時在 console 顯示的值是 5。</p>
+<ol start="2">
+<li>如果想確保輸出結果如下圖，請問要如何修改程式？為什麼？<br>兩個方式，但比較建議使用第二種，將 var 改成 let<br>第一種，將 setTimeout 拿掉，直接執行 for 迴圈印出 console 內容。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二種，將宣告變數的 var ，改成 let ，以避免變數污染。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h3><p>請問下方三行程式碼各自在做什麼？</p>
+<p><code>function Person()&#123;&#125;</code><br><code>var person = Person()</code><br><code>var person = new Person()</code></p>
+<h3 id="A-2"><a href="#A-2" class="headerlink" title="A"></a>A</h3><p><code>function Person() &#123; &#125;</code>，宣告叫 Person 的 function<br><code>var person = Person()</code>，宣告 person 的變數，將 Person() 執行後的結果指派給 person<br><code>var person = new Person()</code>，宣告 person 的變數，將 new Person() 建立的物件實體指派給 person</p>
+<h3 id="Q-this"><a href="#Q-this" class="headerlink" title="Q: this"></a>Q: this</h3><p>下列程式碼會在 console 輸出什麼？為什麼？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myObject = &#123;</span><br><span class="line">  <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">  <span class="attr">func</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;outer func: this.foo = &#x27;</span>, <span class="variable language_">this</span>.<span class="property">foo</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;outer func: self.foo = &#x27;</span>, self.<span class="property">foo</span>);</span><br><span class="line">    (<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;inner func: this.foo = &#x27;</span>, <span class="variable language_">this</span>.<span class="property">foo</span>)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;inner func: self.foo = &#x27;</span>, self.<span class="property">foo</span>)</span><br><span class="line">    &#125;())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myObject.<span class="title function_">func</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-3"><a href="#A-3" class="headerlink" title="A"></a>A</h3><ol>
+<li>輸出結果</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">outer <span class="attr">func</span>: <span class="variable language_">this</span>.<span class="property">foo</span> =  bar</span><br><span class="line">outer <span class="attr">func</span>: self.<span class="property">foo</span> =  bar</span><br><span class="line">inner <span class="attr">func</span>: <span class="variable language_">this</span>.<span class="property">foo</span> =  <span class="literal">undefined</span></span><br><span class="line">inner <span class="attr">func</span>: self.<span class="property">foo</span> =  bar</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>為什麼<br>this 代表『誰呼叫這個函式』，<br>而這個『誰』是怎麼來的？依照不同的綁定(binding)的方式，<br><code>outer func: this.foo = bar</code><br>依題目為隱式綁定(implicit binding)，this 所指的是 myObject 的物件，因此可以看成 <code>myObject.foo = bar</code>。<br><code>outer func: self.foo = bar</code><br>依題目， this 指派給 self 變數，因此 self 也指向 myObject ，可以看成<code>myObject.foo = bar</code>。<br><code>inner func: this.foo = undefined</code><br>依題目為預設綁定，與前兩個情況不同的地方在於，this 都可以清楚的指到 myObject 物件，但依題目的情況， this 無法指到物件，因此 JavaScript 會直接綁定在 window 上成為全域物件。<br>而 window 沒有 foo 的變數，因此出現 undefined<br><code>inner func: self.foo = bar</code><br>第二個 function 中沒有 self 的變數，就會往外找。<br>在第一個 function 中找到 self 的變數，<code>const self = this， this = myObject</code> ，因此可以看成 myObject.foo &#x3D; bar</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/02/concept_javascript/" data-id="cla3ekek2000dt9ja03660u16" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AC-S3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/10/20/AC-S3/" class="article-date">
@@ -126,62 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/20/AC-S3/" data-id="cl9zk0ydz0001nlja6s7af5xm" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-concept" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/10/20/concept/" class="article-date">
-  <time class="dt-published" datetime="2022-10-19T16:00:00.000Z" itemprop="datePublished">2022-10-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/10/20/concept/">問題回顧(HTML/CSS)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h3><p>要在 HTML 檔案中使用<code>&lt;script&gt;</code> 標籤載入 JavaScript 檔案時，一個常見的作法是「把 <code>&lt;script&gt; </code>標籤放在 <code>&lt;body&gt;</code> 的最底部 (也就是 <code>&lt;/body&gt; </code>前)」。請問：</p>
-<ol>
-<li>這樣做的話，在瀏覽器渲染流程中，會在什麼時機點載入到 JavaScript 程式碼？為什麼需要這樣做？</li>
-<li>如果我們想要「在 DOM 生成的同時，一併載入 JavaScript」，針對 script 標籤還有什麼其他的處理作法？</li>
-</ol>
-<h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><ol>
-<li><p>瀏覽器渲染流程中，會在什麼時機點載入到 JavaScript 程式碼？<br>JavaScript 無法直接操作 HTML 。<br>瀏覽器渲染(render)畫面，會由上到下解析 HTML 轉成 JavaScript 可以操作的物件模型 DOM<br>JavaScript 透過 DOM API 的方式完整操作 HTML 的內容<br>將 <code>&lt;script&gt;</code> 放置在 <code>&lt;body&gt;</code> 最底部的主要原因是：確保 HTML DOM 已經完全被解析。<br>若沒有放是在<code>&lt;body&gt;</code>最底部，當瀏覽器碰到 <code>&lt;script&gt;</code> 會暫停解析 DOM ，先下載與執行 <code>&lt;script&gt;</code> ，造成：<br>等待下載 <code>&lt;script&gt; </code>的時間，網頁繪製暫停，會造成頁面空白，影響使用者體驗<br>DOM 沒有解析完成，卻已經執行 script 中需要操作的 HTML 元素</p>
-</li>
-<li><p>「在 DOM 生成的同時，一併載入 JavaScript」，針對 script 標籤還有什麼其他的處理作法？<br>defer<br>async<br>與傳統 <code>&lt;script&gt;</code> 放置在 <code>&lt;/body&gt;</code> 不同的的是：<br>兩種做法都是在 HTML 解析成 DOM 的過程中進行下載，不會造成網頁繪製過程暫停<br>defer 與 async 不同的是在多個 script 檔案的順序：</p>
-</li>
-</ol>
-<p>不論下載進度如何，defer 可以確保執行順序，例如</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;app1.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;app2.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>執行順序由上至下，app1.js &gt; app2.js<br>async 則是依照下載速度，先下載完的 script 先執行。<br>使用情境上：defer 適用於 script 兼有相依性，async 則相反。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/20/concept/" data-id="cl9zk0ye9000bnljahx7q6hmc" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/20/AC-S3/" data-id="cla3ekejt0001t9ja2xk9d5gw" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
       
       
       
@@ -242,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/20/tweets-project/" data-id="cl9zk0yek000snljaajgscybm" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/20/tweets-project/" data-id="cla3ekeke000vt9ja4kj52wsu" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
       
       
       
@@ -292,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/30/AmazingTalker/" data-id="cl9zk0ye10002nlja2a7bgbtc" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/30/AmazingTalker/" data-id="cla3ekeju0002t9ja0q1l2kac" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
       
       
       
@@ -346,7 +438,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/17/Git/" data-id="cl9zk0ye20003nlja071q5rg3" data-title="Git" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/17/Git/" data-id="cla3ekejv0003t9jaey8bd1gn" data-title="Git" class="article-share-link">Share</a>
       
       
       
@@ -407,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/09/04/expense-tracker/" data-id="cl9zk0yea000dnljaelk6hk6d" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/09/04/expense-tracker/" data-id="cla3ekek3000ft9jadha3e58s" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
       
       
       
@@ -443,14 +535,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#x65;&#120;&#112;&#x72;&#101;&#x73;&#x73;&#45;&#x68;&#97;&#x6e;&#x64;&#x6c;&#101;&#x62;&#97;&#114;&#x73;&#64;&#x36;&#46;&#48;&#46;&#54;">&#x65;&#120;&#112;&#x72;&#101;&#x73;&#x73;&#45;&#x68;&#97;&#x6e;&#x64;&#x6c;&#101;&#x62;&#97;&#114;&#x73;&#64;&#x36;&#46;&#48;&#46;&#54;</a></strong> 在設定 view engine 出現 error message</p>
+        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#101;&#x78;&#112;&#x72;&#x65;&#115;&#115;&#x2d;&#104;&#97;&#x6e;&#x64;&#108;&#x65;&#98;&#97;&#x72;&#115;&#64;&#54;&#46;&#x30;&#x2e;&#54;">&#101;&#x78;&#112;&#x72;&#x65;&#115;&#115;&#x2d;&#104;&#97;&#x6e;&#x64;&#108;&#x65;&#98;&#97;&#x72;&#115;&#64;&#54;&#46;&#x30;&#x2e;&#54;</a></strong> 在設定 view engine 出現 error message</p>
 <p><code>app.engine(&#39;hbs&#39;, exphbs(&#123; defaultLayout: &#39;main&#39;, extname: &#39;.hbs&#39; &#125;)) </code><br><code>TypeError: exphbs is not a function</code></p>
 <h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> exphbs = <span class="built_in">require</span>(<span class="string">&#x27;express-handlebars&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">PORT</span> = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">engine</span>(<span class="string">&#x27;hbs&#x27;</span>, exphbs.<span class="title function_">engine</span>(&#123; <span class="attr">defaultLayout</span>: <span class="string">&#x27;main&#x27;</span>, <span class="attr">extname</span>: <span class="string">&#x27;.hbs&#x27;</span> &#125;));</span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;hbs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">`Hello, World`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Example app listening on http://localhost:<span class="subst">$&#123;PORT&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/11/expressHandlebarsEngine/" data-id="cl9zk0yeb000fnlja5fjx7gxx" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/08/11/expressHandlebarsEngine/" data-id="cla3ekek5000ht9ja4pmvc9kp" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
       
       
       
@@ -540,7 +632,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/11/selfTaught/" data-id="cl9zk0yej000rnlja09egaopa" data-title="個人專案 - 短網址" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/08/11/selfTaught/" data-id="cla3ekek5000jt9ja6qs846vj" data-title="個人專案 - 短網址" class="article-share-link">Share</a>
       
       
       
@@ -595,74 +687,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/30/Node.jsLiveServer/" data-id="cl9zk0ye60006nlja5uri81xn" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/30/Node.jsLiveServer/" data-id="cla3ekejz0006t9jad2qs3dia" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-HTML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/06/20/HTML/" class="article-date">
-  <time class="dt-published" datetime="2022-06-19T16:00:00.000Z" itemprop="datePublished">2022-06-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/06/20/HTML/">HTML 的 head 有些什麼</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="HTML-的-head-有什麼"><a href="#HTML-的-head-有什麼" class="headerlink" title="HTML 的 head 有什麼"></a>HTML 的 head 有什麼</h1><p>HTML 是網頁的架構，由語意標籤組成，這裡不會特別紀錄標籤，會把<strong>重點放在 head</strong>裡面有些什麼。<br>在紀錄 head 之前，會先說明 <!DOCTYPE html>、<html> 、<head>、<body> 是什麼<br><br></p>
-<h2 id="HTML-有些什麼？"><a href="#HTML-有些什麼？" class="headerlink" title="HTML 有些什麼？"></a>HTML 有些什麼？</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a><!DOCTYPE html></h3><p>文件的種類，告訴瀏覽器文件的種類是 HTML<br><br>為什麼需要告訴瀏覽器文件的種類？ 與瀏覽器渲染畫面的模式有關。<br><br>瀏覽器有三種渲染畫面的模式：</p>
-<ul>
-<li><strong>quirks mode</strong>、</li>
-<li><strong>almost standards mode</strong>、</li>
-<li><strong>standards mode</strong><br><br>確保瀏覽器在渲染畫面的時候是在正確模式下進行<br></li>
-</ul>
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a><html></h3><ul>
-<li><html>標籤內包含整個頁面的內容</li>
-<li>又可以被稱為 root element<br></li>
-</ul>
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a><head></h3><p>標籤內的內容不會顯示給使用者看到，包含 HTML 的文件內容</p>
-<ul>
-<li><strong>title</strong></li>
-<li><strong>meta</strong></li>
-<li><strong>CSS &#x2F; JavaScript</strong></li>
-<li><strong>script</strong><br></li>
-</ul>
-<p>參考<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">MDN</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/20/HTML/" data-id="cl9zk0ye50005nljagu1yabxp" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
 
     </footer>
   </div>
@@ -709,7 +738,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -722,11 +751,15 @@
       <ul>
         
           <li>
-            <a href="/2022/10/20/AC-S3/">回顧 - 原來已經走了那麼遠了</a>
+            <a href="/2022/11/02/concept/">問題回顧(HTML/CSS)</a>
           </li>
         
           <li>
-            <a href="/2022/10/20/concept/">問題回顧(HTML/CSS)</a>
+            <a href="/2022/11/02/concept_javascript/">問題回顧(JavaScript)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/20/AC-S3/">回顧 - 原來已經走了那麼遠了</a>
           </li>
         
           <li>
@@ -735,10 +768,6 @@
         
           <li>
             <a href="/2022/09/30/AmazingTalker/">企業參訪：AmazingTalker</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/17/Git/">Git</a>
           </li>
         
       </ul>
