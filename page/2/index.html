@@ -3,6 +3,17 @@
 <head>
   <meta charset="utf-8">
   
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RL8KF7H03V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RL8KF7H03V');
+</script>
+<!-- End Google Analytics -->
+
   
   <title>inside out</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -75,6 +86,96 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2022-08-11-selfTaught" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/11/2022-08-11-selfTaught/" class="article-date">
+  <time class="dt-published" datetime="2022-08-10T16:00:00.000Z" itemprop="datePublished">2022-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/08/11/2022-08-11-selfTaught/">個人專案 - 短網址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Debug-中最大的-Bug-是自己，關於自學的模仿、記憶、理解與創造"><a href="#Debug-中最大的-Bug-是自己，關於自學的模仿、記憶、理解與創造" class="headerlink" title="Debug 中最大的 Bug 是自己，關於自學的模仿、記憶、理解與創造"></a>Debug 中最大的 Bug 是自己，關於自學的模仿、記憶、理解與創造</h1><!-- ![alt](/assets/post_img/shortenerUrl.png) -->
+
+<p>這幾天在玩<a target="_blank" rel="noopener" href="https://github.com/Kris3131/Shortener-Url">縮短網址專案</a>，縮短網址看似簡單，網路上也有很多 YouTube 教學可以參考，<a target="_blank" rel="noopener" href="https://youtu.be/Z57566JBaZQ">Build a Custom URL Shortener Service</a>，<a target="_blank" rel="noopener" href="https://youtu.be/SLpUKAGnm-g">How To Build A URL Shortener With Node.js, Express, and MongoDB</a>，所以沒有很直覺地想出要怎麼做專案，我沒有很灰心，畢竟入行沒有很久，大概知道專案邏輯，剩下的就是<strong>try and error</strong>，但要怎麼 Try 怎麼找到解決 Error 的方法，就是寫 code 有挑戰性的地方。</p>
+<p>主要會分成四個『<strong>必須</strong>』來說明這次怎麼解決專案的問題</p>
+<h2 id="Try-and-Error"><a href="#Try-and-Error" class="headerlink" title="Try and Error"></a>Try and Error</h2><h3 id="必須動手-gt-模仿"><a href="#必須動手-gt-模仿" class="headerlink" title="必須動手 -&gt; 模仿"></a>必須動手 -&gt; 模仿</h3><!-- ![alt](/assets/post_img/programming.png) -->
+
+<p>網路上有很多資源，就像要開始 URL Shortener 之前，我只有簡單的想幾個步驟：</p>
+<ol>
+<li>讓使用者自行輸入網址</li>
+<li>讀取使用者輸入網址的內容</li>
+<li>製作短網址</li>
+<li>將短網址導回輸入網址的網頁</li>
+</ol>
+<p>中間跳過許多執行細節，例如要怎麼檢驗，使用者輸入的內容？輸入的內容有沒有重複？要怎麼製作亂數的短網址？……</p>
+<p>這些時候，我會看看別人怎麼做，有沒有哪些功能也可以另外再加上去，或是我沒有注意到的，模仿對我來說可以降低一些挫折的壓力。</p>
+<blockquote>
+<p>模仿似乎變成一種負面的詞彙，『怎麼沒有原創性』，『抄襲仔』的負面印象</p>
+</blockquote>
+<p>但那是因為自己心態不夠健全，模仿不是百分之百一模一樣，而是各取所需，模仿可以讓專案更好的地方。</p>
+<h3 id="必須不怕麻煩-gt-記憶"><a href="#必須不怕麻煩-gt-記憶" class="headerlink" title="必須不怕麻煩 -&gt; 記憶"></a>必須不怕麻煩 -&gt; 記憶</h3><!-- ![alt](/assets/post_img/thinking.jpg) -->
+
+<p>動手不是打架，是正式開始 coding，通常最難，因為需要整理整個專案大概邏輯，畫面要怎麼呈現，還有 set up 專案環境步驟很多。我只是凡人，腦容量不夠，丟三落四變得很正常，像這次專案 set up 需要:</p>
+<ol>
+<li>Express -&gt; 建立 localhost</li>
+<li>express-handelbars -&gt; 建立 view engine</li>
+<li>mongoose 與 MongoDB -&gt;串接資料庫連線</li>
+<li>express.Routes -&gt; 將 routes 獨立出來<br>…</li>
+</ol>
+<p>細微的步驟就只能一再的練習，確認自己知道每一段程式碼是什麼，以我在實作的過程，會畫出 MVC 的架構，把需要串接的工具對應上去，就比較會知道自己在哪裡，做了些什麼事。</p>
+<blockquote>
+<p>必須動手：這是一個無限循環，忘記就再看一次流程，再實作幾次，沒有捷徑。</p>
+</blockquote>
+<h3 id="必須瞭解來龍去脈-gt-理解"><a href="#必須瞭解來龍去脈-gt-理解" class="headerlink" title="必須瞭解來龍去脈 -&gt; 理解"></a>必須瞭解來龍去脈 -&gt; 理解</h3><!-- ![alt](/assets/post_img/road-map.jpg) -->
+
+<p>原理讓我很想睡，因為原理對我而言很抽象，但因為『原理』是整個電腦在運作的邏輯，也必須瞭解，假如沒有認知到，那 debug 會 de 到想哭。</p>
+<p>就像 handelbars 需要透過 controller 帶進需要的資料內容，資料內容沒有對應清楚，畫面永遠跑不出來。透過 mongoose 向 MongoDB 要資料，沒用對的方法拿，當然那些一長串的 error 就會跑滿整個 terminal。</p>
+<blockquote>
+<p>寫程式就是會有很多踩雷的過程，每次踩雷都以為要天崩地裂了，但冷靜下來，原來只是自己觀念不清楚</p>
+</blockquote>
+<p>所以對我而言知道每一段程式碼為什麼存在滿重要的，不然會迷失在錯誤堆中，往不對的方向找答案，只會越來越挫敗。</p>
+<h3 id="必須不滿足-gt-創造"><a href="#必須不滿足-gt-創造" class="headerlink" title="必須不滿足 -&gt; 創造"></a>必須不滿足 -&gt; 創造</h3><!-- ![alt](/assets/post_img/children.jpg) -->
+
+<p>是不是可以優化程式碼？是不是可以增加哪些功能？都是可以被額外增加到專案中，有種自己給自己找事做的感覺，這個過程對我而言是一種挑戰專業的機會，是一個很有趣的體驗，完全沈醉在創作。</p>
+<h3 id="stay-calm"><a href="#stay-calm" class="headerlink" title="stay calm"></a>stay calm</h3><!-- ![alt](/assets/post_img/church-2608425_1920.jpg) -->
+
+<p>最後，也是滿值得記錄一下關於自學的心態建立，先 debug 自己，再 debug 。每當有 error 都想說，怎麼會我都寫對啊，但不斷地找出問題，不斷的釐清邏輯經過數小時後，就會發現，阿呀原來是觀念不熟悉，或是打錯字等等<strong>低級錯誤</strong>。</p>
+<p>冷靜，重新檢視程式碼為什麼會出現錯誤，可能錯誤是出現在哪些地方，是因為語法錯誤嗎？還是有沒有拼錯字，看看別人怎麼做，尋找看看有沒有其他人發生過一樣的問題，一定可以迎刃而解。</p>
+<blockquote>
+<p>debug 只是需要時間跟冷靜地找到問題的方法而已</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-selfTaught/" data-id="cla6862n5000as0ja5jgjcyls" data-title="個人專案 - 短網址" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2022-06-30-Node.jsLiveServer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/30/2022-06-30-Node.jsLiveServer/" class="article-date">
@@ -116,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/06/30/2022-06-30-Node.jsLiveServer/" data-id="cla3gnock0004ksja7dc67jy3" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/06/30/2022-06-30-Node.jsLiveServer/" data-id="cla6862nk0011s0ja9tvxcslf" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
       
       
       
@@ -179,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/06/20/2022-06-20-HTML/" data-id="cla3gnocj0003ksja827v27v2" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/06/20/2022-06-20-HTML/" data-id="cla6862mv0001s0ja612dhzc9" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
       
       
       
@@ -322,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/04/28/2022-04-28-PostgreSQL/" data-id="cla3gnocg0001ksjae2qvh03z" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/04/28/2022-04-28-PostgreSQL/" data-id="cla6862n20006s0jabkjoaxgj" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
       
       
       
@@ -434,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/04/20/2022-04-20-Routes-MVC/" data-id="cla3gnocc0000ksja8rek92pj" data-title="Routes / MVC" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/04/20/2022-04-20-Routes-MVC/" data-id="cla6862n30007s0ja4cb91d4m" data-title="Routes / MVC" class="article-share-link">Share</a>
       
       
       
@@ -466,7 +567,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
     </div>
   </div>
 
@@ -476,7 +577,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 10px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 20px;">projects</a> <a href="/tags/thoughts/" style="font-size: 10px;">thoughts</a>
+      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 20px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
     </div>
   </div>
 
@@ -498,6 +599,10 @@
       <ul>
         
           <li>
+            <a href="/2022/11/07/2022-11-07-install-vim/">Vim-install</a>
+          </li>
+        
+          <li>
             <a href="/2022/11/05/2022-11-05-open-source/">Open Source</a>
           </li>
         
@@ -511,10 +616,6 @@
         
           <li>
             <a href="/2022/10/20/2022-10-20-AC-S3/">回顧 - 原來已經走了那麼遠了</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/20/2022-10-20-tweets-project/">好！完成了 ! Tweets 專案</a>
           </li>
         
       </ul>
