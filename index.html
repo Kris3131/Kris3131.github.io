@@ -137,11 +137,111 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-install-vim/" data-id="cla6b5cqk000qnkja8pakdefq" data-title="Vim, 隨時補充" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-install-vim/" data-id="cla6s3nhx000qc8ja81xm31ze" data-title="Vim, 隨時補充" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2022-11-07-leetcode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/07/2022-11-07-leetcode/" class="article-date">
+  <time class="dt-published" datetime="2022-11-06T16:00:00.000Z" itemprop="datePublished">2022-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/07/2022-11-07-leetcode/">Leetcode 隨時更新</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="判斷身分證字號是否有效"><a href="#判斷身分證字號是否有效" class="headerlink" title="判斷身分證字號是否有效"></a>判斷身分證字號是否有效</h3><p><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89#/%E7%B7%A8%E8%99%9F%E8%A6%8F%E5%89%87">編號規則</a></p>
+<ol>
+<li>首碼 -&gt; 戶籍地</li>
+<li>有效碼公式<br>假設身分證字號為<code>A123456789</code><ul>
+<li>A 轉換為數值是 10，</li>
+<li>每一碼拆開後分別編號</li>
+<li>每一個數字依序乘上 1、9、8、7、6、5、4、3、2、1、1</li>
+<li>最後再相加</li>
+<li>然後再除以 10</li>
+<li>整除就是有效之身分證號碼</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>順序</th>
+<th>n1</th>
+<th>n2</th>
+<th>n3</th>
+<th>n4</th>
+<th>n5</th>
+<th>n6</th>
+<th>n7</th>
+<th>n8</th>
+<th>n9</th>
+<th>n10</th>
+<th>n11</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>號碼</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+<tr>
+<td>乘</td>
+<td>1</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isValidTWId</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (str.<span class="property">length</span> !== <span class="number">10</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment">// 首碼-&gt;戶籍碼</span></span><br><span class="line">  <span class="keyword">const</span> n = <span class="title function_">alphaToNumber</span>(str[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">// 十位數拆開</span></span><br><span class="line">  <span class="keyword">const</span> firstNumber = <span class="title class_">Math</span>.<span class="title function_">floor</span>(n / <span class="number">10</span>)</span><br><span class="line">  <span class="keyword">const</span> secondNumber = n % <span class="number">10</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 每一個數字依序乘上1、9、8、7、6、5、4、3、2、1、1，最後再相加</span></span><br><span class="line">  <span class="keyword">let</span> sum = firstNumber * <span class="number">1</span> + secondNumber * <span class="number">9</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; str.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    sum += str[i] * (<span class="number">9</span> - i)</span><br><span class="line">  &#125;</span><br><span class="line">  sum += <span class="title class_">Number</span>(str[<span class="number">9</span>])</span><br><span class="line">  <span class="keyword">return</span> sum % <span class="number">10</span> === <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">alphaToNumber</span>(<span class="params">alpha</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> mapping = &#123;</span><br><span class="line">    <span class="attr">A</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">B</span>: <span class="number">11</span>,</span><br><span class="line">    <span class="attr">C</span>: <span class="number">12</span>,</span><br><span class="line">    <span class="attr">D</span>: <span class="number">13</span>,</span><br><span class="line">    <span class="attr">E</span>: <span class="number">14</span>,</span><br><span class="line">    <span class="attr">F</span>: <span class="number">15</span>,</span><br><span class="line">    <span class="attr">G</span>: <span class="number">16</span>,</span><br><span class="line">    <span class="attr">H</span>: <span class="number">17</span>,</span><br><span class="line">    <span class="attr">I</span>: <span class="number">34</span>,</span><br><span class="line">    <span class="attr">J</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">K</span>: <span class="number">19</span>,</span><br><span class="line">    <span class="attr">L</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">M</span>: <span class="number">21</span>,</span><br><span class="line">    <span class="attr">N</span>: <span class="number">22</span>,</span><br><span class="line">    <span class="attr">O</span>: <span class="number">35</span>,</span><br><span class="line">    <span class="attr">P</span>: <span class="number">23</span>,</span><br><span class="line">    <span class="attr">Q</span>: <span class="number">24</span>,</span><br><span class="line">    <span class="attr">R</span>: <span class="number">25</span>,</span><br><span class="line">    <span class="attr">S</span>: <span class="number">26</span>,</span><br><span class="line">    <span class="attr">T</span>: <span class="number">27</span>,</span><br><span class="line">    <span class="attr">U</span>: <span class="number">28</span>,</span><br><span class="line">    <span class="attr">V</span>: <span class="number">29</span>,</span><br><span class="line">    <span class="attr">W</span>: <span class="number">32</span>,</span><br><span class="line">    <span class="attr">X</span>: <span class="number">30</span>,</span><br><span class="line">    <span class="attr">Y</span>: <span class="number">31</span>,</span><br><span class="line">    <span class="attr">Z</span>: <span class="number">33</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mapping[alpha]</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isValidTWId</span>(<span class="string">&#x27;A123456789&#x27;</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isValidTWId</span>(<span class="string">&#x27;A234567890&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/" data-id="cla6s3nhy000sc8jaea2wch64" data-title="Leetcode 隨時更新" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concept/" rel="tag">concept</a></li></ul>
 
     </footer>
   </div>
@@ -197,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="cla6b5cqi000nnkjahny7abs3" data-title="Open Source" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="cla6s3nhw000nc8ja3mk90xn2" data-title="Open Source" class="article-share-link">Share</a>
       
       
       
@@ -254,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept/" data-id="cla6b5cqh000jnkja6pps1xrk" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept/" data-id="cla6s3nhu000jc8jahmok4kem" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
       
       
       
@@ -348,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept_javascript/" data-id="cla6b5cqh000lnkja3nsy2xms" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept_javascript/" data-id="cla6s3nhv000lc8jab5p0fmbq" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
       
       
       
@@ -413,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-AC-S3/" data-id="cla6b5cqf000fnkja8upf9hps" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-AC-S3/" data-id="cla6s3nhs000fc8ja0ens3pff" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
       
       
       
@@ -476,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="cla6b5cqg000hnkjaajbx9j3z" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="cla6s3nht000hc8ja3qnw72rp" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
       
       
       
@@ -528,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="cla6b5cqd000dnkjabkrp20u7" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="cla6s3nhp000dc8jab8t353zi" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
       
       
       
@@ -582,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/17/2022-09-17-Git/" data-id="cla6b5cqc000bnkja1qfc1whe" data-title="Git" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/17/2022-09-17-Git/" data-id="cla6s3nho000bc8jaf9veg5ev" data-title="Git" class="article-share-link">Share</a>
       
       
       
@@ -643,54 +743,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/04/2022-09-04-expense-tracker/" data-id="cla6b5cqb0009nkjag1ct4rhh" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/04/2022-09-04-expense-tracker/" data-id="cla6s3nhn0009c8ja5mfm3lj2" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2022-08-11-expressHandlebarsEngine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/11/2022-08-11-expressHandlebarsEngine/" class="article-date">
-  <time class="dt-published" datetime="2022-08-10T16:00:00.000Z" itemprop="datePublished">2022-08-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/11/2022-08-11-expressHandlebarsEngine/">express-handlebars ERROR</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#x65;&#120;&#x70;&#x72;&#101;&#115;&#x73;&#45;&#104;&#x61;&#110;&#100;&#108;&#x65;&#x62;&#97;&#x72;&#x73;&#x40;&#x36;&#x2e;&#48;&#46;&#54;">&#x65;&#120;&#x70;&#x72;&#101;&#115;&#x73;&#45;&#104;&#x61;&#110;&#100;&#108;&#x65;&#x62;&#97;&#x72;&#x73;&#x40;&#x36;&#x2e;&#48;&#46;&#54;</a></strong> 在設定 view engine 出現 error message</p>
-<p><code>app.engine(&#39;hbs&#39;, exphbs(&#123; defaultLayout: &#39;main&#39;, extname: &#39;.hbs&#39; &#125;)) </code><br><code>TypeError: exphbs is not a function</code></p>
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> exphbs = <span class="built_in">require</span>(<span class="string">&#x27;express-handlebars&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">PORT</span> = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">engine</span>(<span class="string">&#x27;hbs&#x27;</span>, exphbs.<span class="title function_">engine</span>(&#123; <span class="attr">defaultLayout</span>: <span class="string">&#x27;main&#x27;</span>, <span class="attr">extname</span>: <span class="string">&#x27;.hbs&#x27;</span> &#125;));</span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;hbs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">`Hello, World`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Example app listening on http://localhost:<span class="subst">$&#123;PORT&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-expressHandlebarsEngine/" data-id="cla6b5cq90005nkjab3s3dop5" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li></ul>
 
     </footer>
   </div>
@@ -728,7 +785,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 20px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
+      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 15px;">thoughts</a>
     </div>
   </div>
 
@@ -754,6 +811,10 @@
           </li>
         
           <li>
+            <a href="/2022/11/07/2022-11-07-leetcode/">Leetcode 隨時更新</a>
+          </li>
+        
+          <li>
             <a href="/2022/11/05/2022-11-05-open-source/">Open Source</a>
           </li>
         
@@ -763,10 +824,6 @@
         
           <li>
             <a href="/2022/11/02/2022-11-02-concept_javascript/">問題回顧(JavaScript)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/10/20/2022-10-20-AC-S3/">回顧 - 原來已經走了那麼遠了</a>
           </li>
         
       </ul>

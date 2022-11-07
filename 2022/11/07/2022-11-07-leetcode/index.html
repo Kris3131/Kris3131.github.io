@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RL8KF7H03V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RL8KF7H03V');
+</script>
+<!-- End Google Analytics -->
+
+  
+  <title>Leetcode 隨時更新 | inside out</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="判斷身分證字號是否有效編號規則  首碼 -&gt; 戶籍地 有效碼公式假設身分證字號為A123456789 A 轉換為數值是 10， 每一碼拆開後分別編號 每一個數字依序乘上 1、9、8、7、6、5、4、3、2、1、1 最後再相加 然後再除以 10 整除就是有效之身分證號碼       順序 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 n11    號碼 1 0 1 2 3 4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 隨時更新">
+<meta property="og:url" content="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/index.html">
+<meta property="og:site_name" content="inside out">
+<meta property="og:description" content="判斷身分證字號是否有效編號規則  首碼 -&gt; 戶籍地 有效碼公式假設身分證字號為A123456789 A 轉換為數值是 10， 每一碼拆開後分別編號 每一個數字依序乘上 1、9、8、7、6、5、4、3、2、1、1 最後再相加 然後再除以 10 整除就是有效之身分證號碼       順序 n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 n11    號碼 1 0 1 2 3 4">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-11-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-07T12:47:08.265Z">
+<meta property="article:author" content="Kris">
+<meta property="article:tag" content="concept">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="inside out" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">inside out</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">web development</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kris3131.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2022-11-07-leetcode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/07/2022-11-07-leetcode/" class="article-date">
+  <time class="dt-published" datetime="2022-11-06T16:00:00.000Z" itemprop="datePublished">2022-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Leetcode 隨時更新
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="判斷身分證字號是否有效"><a href="#判斷身分證字號是否有效" class="headerlink" title="判斷身分證字號是否有效"></a>判斷身分證字號是否有效</h3><p><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89#/%E7%B7%A8%E8%99%9F%E8%A6%8F%E5%89%87">編號規則</a></p>
+<ol>
+<li>首碼 -&gt; 戶籍地</li>
+<li>有效碼公式<br>假設身分證字號為<code>A123456789</code><ul>
+<li>A 轉換為數值是 10，</li>
+<li>每一碼拆開後分別編號</li>
+<li>每一個數字依序乘上 1、9、8、7、6、5、4、3、2、1、1</li>
+<li>最後再相加</li>
+<li>然後再除以 10</li>
+<li>整除就是有效之身分證號碼</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>順序</th>
+<th>n1</th>
+<th>n2</th>
+<th>n3</th>
+<th>n4</th>
+<th>n5</th>
+<th>n6</th>
+<th>n7</th>
+<th>n8</th>
+<th>n9</th>
+<th>n10</th>
+<th>n11</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>號碼</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+<tr>
+<td>乘</td>
+<td>1</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isValidTWId</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (str.<span class="property">length</span> !== <span class="number">10</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment">// 首碼-&gt;戶籍碼</span></span><br><span class="line">  <span class="keyword">const</span> n = <span class="title function_">alphaToNumber</span>(str[<span class="number">0</span>])</span><br><span class="line">  <span class="comment">// 十位數拆開</span></span><br><span class="line">  <span class="keyword">const</span> firstNumber = <span class="title class_">Math</span>.<span class="title function_">floor</span>(n / <span class="number">10</span>)</span><br><span class="line">  <span class="keyword">const</span> secondNumber = n % <span class="number">10</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 每一個數字依序乘上1、9、8、7、6、5、4、3、2、1、1，最後再相加</span></span><br><span class="line">  <span class="keyword">let</span> sum = firstNumber * <span class="number">1</span> + secondNumber * <span class="number">9</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; str.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    sum += str[i] * (<span class="number">9</span> - i)</span><br><span class="line">  &#125;</span><br><span class="line">  sum += <span class="title class_">Number</span>(str[<span class="number">9</span>])</span><br><span class="line">  <span class="keyword">return</span> sum % <span class="number">10</span> === <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">alphaToNumber</span>(<span class="params">alpha</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> mapping = &#123;</span><br><span class="line">    <span class="attr">A</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">B</span>: <span class="number">11</span>,</span><br><span class="line">    <span class="attr">C</span>: <span class="number">12</span>,</span><br><span class="line">    <span class="attr">D</span>: <span class="number">13</span>,</span><br><span class="line">    <span class="attr">E</span>: <span class="number">14</span>,</span><br><span class="line">    <span class="attr">F</span>: <span class="number">15</span>,</span><br><span class="line">    <span class="attr">G</span>: <span class="number">16</span>,</span><br><span class="line">    <span class="attr">H</span>: <span class="number">17</span>,</span><br><span class="line">    <span class="attr">I</span>: <span class="number">34</span>,</span><br><span class="line">    <span class="attr">J</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">K</span>: <span class="number">19</span>,</span><br><span class="line">    <span class="attr">L</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">M</span>: <span class="number">21</span>,</span><br><span class="line">    <span class="attr">N</span>: <span class="number">22</span>,</span><br><span class="line">    <span class="attr">O</span>: <span class="number">35</span>,</span><br><span class="line">    <span class="attr">P</span>: <span class="number">23</span>,</span><br><span class="line">    <span class="attr">Q</span>: <span class="number">24</span>,</span><br><span class="line">    <span class="attr">R</span>: <span class="number">25</span>,</span><br><span class="line">    <span class="attr">S</span>: <span class="number">26</span>,</span><br><span class="line">    <span class="attr">T</span>: <span class="number">27</span>,</span><br><span class="line">    <span class="attr">U</span>: <span class="number">28</span>,</span><br><span class="line">    <span class="attr">V</span>: <span class="number">29</span>,</span><br><span class="line">    <span class="attr">W</span>: <span class="number">32</span>,</span><br><span class="line">    <span class="attr">X</span>: <span class="number">30</span>,</span><br><span class="line">    <span class="attr">Y</span>: <span class="number">31</span>,</span><br><span class="line">    <span class="attr">Z</span>: <span class="number">33</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mapping[alpha]</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isValidTWId</span>(<span class="string">&#x27;A123456789&#x27;</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isValidTWId</span>(<span class="string">&#x27;A234567890&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/" data-id="cla6s3nhy000sc8jaea2wch64" data-title="Leetcode 隨時更新" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concept/" rel="tag">concept</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/07/2022-11-07-install-vim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vim, 隨時補充
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/05/2022-11-05-open-source/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Open Source</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 15px;">thoughts</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/07/2022-11-07-install-vim/">Vim, 隨時補充</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/07/2022-11-07-leetcode/">Leetcode 隨時更新</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/05/2022-11-05-open-source/">Open Source</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/02/2022-11-02-concept/">問題回顧(HTML/CSS)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/02/2022-11-02-concept_javascript/">問題回顧(JavaScript)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Kris<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
