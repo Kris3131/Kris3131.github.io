@@ -86,6 +86,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2022-11-21-RunningSumof1dArray" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/21/2022-11-21-RunningSumof1dArray/" class="article-date">
+  <time class="dt-published" datetime="2022-11-20T16:00:00.000Z" itemprop="datePublished">2022-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/21/2022-11-21-RunningSumof1dArray/">LeetCode - Running Sum Of 1d Array</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="題目"><a href="#題目" class="headerlink" title="題目"></a>題目</h3><ul>
+<li>inputs <code>nums</code> 是一個陣列</li>
+<li>outputs 的結果是 <code>runningSum[i] = sum(nums[0]…nums[i])</code></li>
+</ul>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p><code>Input: nums = [1,2,3,4]</code><br><code>Output: [1,3,6,10]</code><br><code>Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].</code></p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ul>
+<li>iteration, 不可以超過 nums length</li>
+<li>儲存加起來的值</li>
+<li>-&gt; index[0] 不動 -&gt; index[1] &#x3D; index[0] + index[1]</li>
+<li>-&gt; index[1] 不動 -&gt; index[2] &#x3D; index[1] + index[2]</li>
+<li>…</li>
+<li>index[i + 1] &#x3D; index[i] + index [i+1]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">nums</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span> - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> temp = nums[i] + nums[i + <span class="number">1</span>]</span><br><span class="line">    nums[i + <span class="number">1</span>] = temp</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nums</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> nums = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(nums))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/11/21/2022-11-21-RunningSumof1dArray/" data-id="claqdc060000uhjw6brqnhn6w" data-title="LeetCode - Running Sum Of 1d Array" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2022-11-07-install-vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/07/2022-11-07-install-vim/" class="article-date">
@@ -137,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-install-vim/" data-id="cla6s3nhx000qc8ja81xm31ze" data-title="Vim, 隨時補充" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-install-vim/" data-id="claqdc05y000qhjw64su96uik" data-title="Vim, 隨時補充" class="article-share-link">Share</a>
       
       
       
@@ -237,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/" data-id="cla6s3nhy000sc8jaea2wch64" data-title="Leetcode 隨時更新" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/" data-id="claqdc05z000shjw6gglf812z" data-title="Leetcode 隨時更新" class="article-share-link">Share</a>
       
       
       
@@ -297,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="cla6s3nhw000nc8ja3mk90xn2" data-title="Open Source" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="claqdc05x000nhjw6120w4nza" data-title="Open Source" class="article-share-link">Share</a>
       
       
       
@@ -354,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept/" data-id="cla6s3nhu000jc8jahmok4kem" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept/" data-id="claqdc05v000hhjw6hgd21wfg" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
       
       
       
@@ -448,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept_javascript/" data-id="cla6s3nhv000lc8jab5p0fmbq" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept_javascript/" data-id="claqdc05x000lhjw6crut1smb" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
       
       
       
@@ -513,7 +567,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-AC-S3/" data-id="cla6s3nhs000fc8ja0ens3pff" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-AC-S3/" data-id="claqdc05v000fhjw64cdh0i0x" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
       
       
       
@@ -576,7 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="cla6s3nht000hc8ja3qnw72rp" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="claqdc05w000jhjw624931abp" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
       
       
       
@@ -628,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="cla6s3nhp000dc8jab8t353zi" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="claqdc05u000dhjw6gpl3ap2j" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
       
       
       
@@ -682,72 +736,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/17/2022-09-17-Git/" data-id="cla6s3nho000bc8jaf9veg5ev" data-title="Git" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/17/2022-09-17-Git/" data-id="claqdc05t000bhjw6evv98x3t" data-title="Git" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2022-09-04-expense-tracker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/09/04/2022-09-04-expense-tracker/" class="article-date">
-  <time class="dt-published" datetime="2022-09-03T16:00:00.000Z" itemprop="datePublished">2022-09-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/09/04/2022-09-04-expense-tracker/">個人專案 - 記帳本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>這是一個使用者可以自行註冊 &#x2F; 使用第三方等方法登入的記帳工具，是 side-project 的雛形。</p>
-<h3 id="為什麼會選擇這個專案"><a href="#為什麼會選擇這個專案" class="headerlink" title="為什麼會選擇這個專案"></a>為什麼會選擇這個專案</h3><p>身為一個熱愛自己動手做<strong>實用的軟體工具</strong>的工程師，在 MVC 架構下，可以好好練習 CRUD 的各種變化，也是一個可以好好玩各種可能性的練習，在練習的過程中加入一些新套件的實驗與應用，是最有趣的部分。</p>
-<p>所以對我來說，只要是<strong>日常需要的軟體工具</strong>，都是一個選擇專案的原因。</p>
-<h3 id="使用什麼技術"><a href="#使用什麼技術" class="headerlink" title="使用什麼技術"></a>使用什麼技術</h3><p>這次專案的開法是以 Express 為全端開發，Handlebars 處理畫面 ，資料庫是使用 MongoDB ，這次專案的新嘗試是 Passport 套件的 Facebook &#x2F; Google 登入。</p>
-<h3 id="對於技術掌握與專案檢討"><a href="#對於技術掌握與專案檢討" class="headerlink" title="對於技術掌握與專案檢討"></a>對於技術掌握與專案檢討</h3><p>專案有甘有苦，這都是人生啊</p>
-<p>Express CRUD 的架構算是滿清楚的，專案的建立也是從『支出花費』的 CRUD 開始建立，難度不是很高，從第二第三個 Model 關聯性的建立，難度變成要怎麼向 MongoDB 取得所需資料。主要是自己對於 asynchronous 非同步的處理不熟悉，導致花了很多時間在『 咦?!資料為什麼沒跑出來 』，後續需要對於非同步的觀念在加強。</p>
-<p>當然中間也很多不知道怎麼下手的功能，時常需要看看其他人怎麼做，抓出程式邏輯，再看看以目前已經進行的方向要怎麼調整。或是利用一些關鍵字，例如我在實作的時候，有個功能是篩選出「類別」，需要再使用者篩選後， option 會停留在篩選的結果。這個我卡了好一陣子，也是這次專案中新嘗試的小套件，列出幾個搜尋關鍵字，關鍵字的邏輯是使用哪個套件，在那裡遇到，關鍵字如下:</p>
-<ul>
-<li><p>handelbars -&gt; view 使用的套件</p>
-</li>
-<li><p>select -&gt; HTML 標籤</p>
-</li>
-<li><p>option -&gt; select 下的選項</p>
-</li>
-<li><p>selected -&gt; select 被選 的屬性</p>
-<p>結果終於找到，[用 Handlebars 做出保留原始資料的資料][handelbars-helper]<br>[handelbars-helper]: <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10242260">https://ithelp.ithome.com.tw/articles/10242260</a></p>
-</li>
-</ul>
-<p>都成功顯示畫面，不過我又落入沒有設定停損點，導致花了很多時間在問題打轉。</p>
-<p>最後是專案需求，有時候自己做一做專案很開心，一個不小心就離主軸目標越來越遠，等到要拉回來的時候，花了很多無謂的時間在 debug ，得不償失。</p>
-<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>永遠不會有完美的專案，總是有優化專案的空間<br>[專案 GitHub 連結][github]<br>[Heroku 試玩][heroku]<br>[github]: <a target="_blank" rel="noopener" href="https://github.com/Kris3131/expense-tracker">https://github.com/Kris3131/expense-tracker</a><br>[heroku]: <a target="_blank" rel="noopener" href="https://peaceful-retreat-01550.herokuapp.com/users/login">https://peaceful-retreat-01550.herokuapp.com/users/login</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/04/2022-09-04-expense-tracker/" data-id="cla6s3nhn0009c8ja5mfm3lj2" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
 
     </footer>
   </div>
@@ -775,7 +768,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
     </div>
   </div>
 
@@ -785,7 +778,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 15px;">thoughts</a>
+      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 15px;">thoughts</a>
     </div>
   </div>
 
@@ -807,6 +800,10 @@
       <ul>
         
           <li>
+            <a href="/2022/11/21/2022-11-21-RunningSumof1dArray/">LeetCode - Running Sum Of 1d Array</a>
+          </li>
+        
+          <li>
             <a href="/2022/11/07/2022-11-07-install-vim/">Vim, 隨時補充</a>
           </li>
         
@@ -820,10 +817,6 @@
         
           <li>
             <a href="/2022/11/02/2022-11-02-concept/">問題回顧(HTML/CSS)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/02/2022-11-02-concept_javascript/">問題回顧(JavaScript)</a>
           </li>
         
       </ul>
