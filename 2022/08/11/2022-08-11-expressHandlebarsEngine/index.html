@@ -17,12 +17,12 @@
   
   <title>express-handlebars ERROR | inside out</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="設定 view engine ERROR&amp;#x65;&amp;#120;&amp;#x70;&amp;#114;&amp;#x65;&amp;#x73;&amp;#115;&amp;#x2d;&amp;#x68;&amp;#x61;&amp;#110;&amp;#x64;&amp;#108;&amp;#x65;&amp;#x62;&amp;#97;&amp;#x72;&amp;#115;&amp;#x40;&amp;#54;&amp;#46;&amp;#48;&amp;#x2e;&amp;#54; 在設定 view engine 出現 error message app.eng">
+  <meta name="description" content="設定 view engine ERROR&amp;#x65;&amp;#x78;&amp;#x70;&amp;#x72;&amp;#x65;&amp;#x73;&amp;#x73;&amp;#45;&amp;#x68;&amp;#x61;&amp;#110;&amp;#100;&amp;#x6c;&amp;#101;&amp;#x62;&amp;#x61;&amp;#x72;&amp;#115;&amp;#64;&amp;#x36;&amp;#46;&amp;#48;&amp;#x2e;&amp;#54; 在設定 view engine 出現 error message app.eng">
 <meta property="og:type" content="article">
 <meta property="og:title" content="express-handlebars ERROR">
 <meta property="og:url" content="https://kris3131.github.io/2022/08/11/2022-08-11-expressHandlebarsEngine/index.html">
 <meta property="og:site_name" content="inside out">
-<meta property="og:description" content="設定 view engine ERROR&amp;#x65;&amp;#120;&amp;#x70;&amp;#114;&amp;#x65;&amp;#x73;&amp;#115;&amp;#x2d;&amp;#x68;&amp;#x61;&amp;#110;&amp;#x64;&amp;#108;&amp;#x65;&amp;#x62;&amp;#97;&amp;#x72;&amp;#115;&amp;#x40;&amp;#54;&amp;#46;&amp;#48;&amp;#x2e;&amp;#54; 在設定 view engine 出現 error message app.eng">
+<meta property="og:description" content="設定 view engine ERROR&amp;#x65;&amp;#x78;&amp;#x70;&amp;#x72;&amp;#x65;&amp;#x73;&amp;#x73;&amp;#45;&amp;#x68;&amp;#x61;&amp;#110;&amp;#100;&amp;#x6c;&amp;#101;&amp;#x62;&amp;#x61;&amp;#x72;&amp;#115;&amp;#64;&amp;#x36;&amp;#46;&amp;#48;&amp;#x2e;&amp;#54; 在設定 view engine 出現 error message app.eng">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-08-10T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-10-18T04:32:48.239Z">
@@ -111,14 +111,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#x65;&#120;&#x70;&#114;&#x65;&#x73;&#115;&#x2d;&#x68;&#x61;&#110;&#x64;&#108;&#x65;&#x62;&#97;&#x72;&#115;&#x40;&#54;&#46;&#48;&#x2e;&#54;">&#x65;&#120;&#x70;&#114;&#x65;&#x73;&#115;&#x2d;&#x68;&#x61;&#110;&#x64;&#108;&#x65;&#x62;&#97;&#x72;&#115;&#x40;&#54;&#46;&#48;&#x2e;&#54;</a></strong> 在設定 view engine 出現 error message</p>
+        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#x65;&#x78;&#x70;&#x72;&#x65;&#x73;&#x73;&#45;&#x68;&#x61;&#110;&#100;&#x6c;&#101;&#x62;&#x61;&#x72;&#115;&#64;&#x36;&#46;&#48;&#x2e;&#54;">&#x65;&#x78;&#x70;&#x72;&#x65;&#x73;&#x73;&#45;&#x68;&#x61;&#110;&#100;&#x6c;&#101;&#x62;&#x61;&#x72;&#115;&#64;&#x36;&#46;&#48;&#x2e;&#54;</a></strong> 在設定 view engine 出現 error message</p>
 <p><code>app.engine(&#39;hbs&#39;, exphbs(&#123; defaultLayout: &#39;main&#39;, extname: &#39;.hbs&#39; &#125;)) </code><br><code>TypeError: exphbs is not a function</code></p>
 <h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> exphbs = <span class="built_in">require</span>(<span class="string">&#x27;express-handlebars&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">PORT</span> = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">engine</span>(<span class="string">&#x27;hbs&#x27;</span>, exphbs.<span class="title function_">engine</span>(&#123; <span class="attr">defaultLayout</span>: <span class="string">&#x27;main&#x27;</span>, <span class="attr">extname</span>: <span class="string">&#x27;.hbs&#x27;</span> &#125;));</span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;hbs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">`Hello, World`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Example app listening on http://localhost:<span class="subst">$&#123;PORT&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-expressHandlebarsEngine/" data-id="claqdc05q0005hjw6c9nhct6c" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-expressHandlebarsEngine/" data-id="clcr9ooig0009v1w61bur9dkf" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
       
       
       
@@ -172,7 +172,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 15px;">thoughts</a>
+      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
     </div>
   </div>
 
@@ -181,7 +181,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -192,6 +192,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/01/11/2023-01-11-changeCareerPath/">跳痛 - 轉職工程師不容易</a>
+          </li>
         
           <li>
             <a href="/2022/11/21/2022-11-21-RunningSumof1dArray/">LeetCode - Running Sum Of 1d Array</a>
@@ -209,10 +213,6 @@
             <a href="/2022/11/05/2022-11-05-open-source/">Open Source</a>
           </li>
         
-          <li>
-            <a href="/2022/11/02/2022-11-02-concept/">問題回顧(HTML/CSS)</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -226,7 +226,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 Kris<br>
+      &copy; 2023 Kris<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
