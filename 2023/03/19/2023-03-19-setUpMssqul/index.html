@@ -15,22 +15,20 @@
 <!-- End Google Analytics -->
 
   
-  <title>Open Source | inside out</title>
+  <title>Set up MSSQL in Node.js | inside out</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="先說為什麼會踏入 Open Source 的世界？自從轉換跑道後，時常聽到開源專案，但總是沒有時間好好研究到底什麼是開源。這次可以有機會參加踏入開源的活動(雖然說”這次”…但也其實發文時間與活動時間中間間隔有點久)。不管怎樣，感謝我的爸爸媽媽，當然也是要謝謝 Alpha Camp 特別舉辦講座。 我的母校 Alpha Camp 每次辦的講座與活動，通常我只要看到『欸這什麼』都會立馬報名聽聽看。當然">
+  <meta name="description" content="install DockerDocker docs use docker to install SQL Server(for mac intel chip)1$ sudo docker pull mcr.microsoft.com&#x2F;mssql&#x2F;server:2023-latest  Note : You can change the version you want by change the y">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Open Source">
-<meta property="og:url" content="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/index.html">
+<meta property="og:title" content="Set up MSSQL in Node.js">
+<meta property="og:url" content="https://kris3131.github.io/2023/03/19/2023-03-19-setUpMssqul/index.html">
 <meta property="og:site_name" content="inside out">
-<meta property="og:description" content="先說為什麼會踏入 Open Source 的世界？自從轉換跑道後，時常聽到開源專案，但總是沒有時間好好研究到底什麼是開源。這次可以有機會參加踏入開源的活動(雖然說”這次”…但也其實發文時間與活動時間中間間隔有點久)。不管怎樣，感謝我的爸爸媽媽，當然也是要謝謝 Alpha Camp 特別舉辦講座。 我的母校 Alpha Camp 每次辦的講座與活動，通常我只要看到『欸這什麼』都會立馬報名聽聽看。當然">
+<meta property="og:description" content="install DockerDocker docs use docker to install SQL Server(for mac intel chip)1$ sudo docker pull mcr.microsoft.com&#x2F;mssql&#x2F;server:2023-latest  Note : You can change the version you want by change the y">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://kris3131.github.io/images/hack-.jpg">
-<meta property="article:published_time" content="2022-11-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-07T04:52:58.811Z">
+<meta property="article:published_time" content="2023-03-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-19T13:28:49.452Z">
 <meta property="article:author" content="Kris">
-<meta property="article:tag" content="thoughts">
+<meta property="article:tag" content="Data-Base">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kris3131.github.io/images/hack-.jpg">
   
     <link rel="alternate" href="/atom.xml" title="inside out" type="application/atom+xml">
   
@@ -91,10 +89,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-2022-11-05-open-source" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-2023-03-19-setUpMssqul" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/11/05/2022-11-05-open-source/" class="article-date">
-  <time class="dt-published" datetime="2022-11-04T16:00:00.000Z" itemprop="datePublished">2022-11-05</time>
+    <a href="/2023/03/19/2023-03-19-setUpMssqul/" class="article-date">
+  <time class="dt-published" datetime="2023-03-18T16:00:00.000Z" itemprop="datePublished">2023-03-19</time>
 </a>
     
   </div>
@@ -105,7 +103,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Open Source
+      Set up MSSQL in Node.js
     </h1>
   
 
@@ -113,35 +111,33 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>先說為什麼會踏入 Open Source 的世界？自從轉換跑道後，時常聽到開源專案，但總是沒有時間好好研究到底什麼是<strong>開源</strong>。<br>這次可以有機會參加<strong>踏入開源的活動</strong>(雖然說”這次”…但也其實發文時間與活動時間中間間隔有點久)。不管怎樣，感謝我的爸爸媽媽，當然也是要謝謝 Alpha Camp 特別舉辦講座。</p>
-<p>我的母校 Alpha Camp 每次辦的講座與活動，通常我只要看到『欸這什麼』都會立馬報名聽聽看。當然有時候也會想說，聽不懂怎麼辦，別擔心，我記得活動報名前就有個貼心小提醒</p>
-<blockquote>
-<p>本次活動的技術成份較重，無法完全理解內容也不用氣餒，「多聽、多問、多筆記」，未來碰到時再深入研究即可。</p>
-</blockquote>
-<p>總之，很幸運的獲得參加講座的機會，也讓我對於開源社群有更多的認識。</p>
-<p><img src="/../images/hack-.jpg" alt="圖片來源:Alpha Camp"></p>
-<p>來吧講重點了</p>
-<p>活動有三位講者，Singing、Ninja、Davy。三位都有個共通點：熱情，但他們表現的方式不太一樣。</p>
-<p>Singing 對於開源社群的社情：</p>
-<p>Singing 從組織架構的角度介紹台灣開源的社群，宣導一個觀念<strong>社群要能不斷運行，需要大家的合作</strong>，而參與活動或是參與開源專案，都是可以讓台灣開源社群不斷運作。</p>
-<p>對我而言是另外一個世界。因為之前對於程式相關社群認識停留在 AC 社群。假如有問題在學習平台詢問助教、Discord 詢問同學。沒有特別想到畢業後也可以有社群可以詢問技術與套件的問題。</p>
-<p>目前有鎖定幾個想要瞭解與參與的開源社群，待工作確認未來發展的技能樹輪廓，再決定是不是可以先從翻譯文件開始？順便挑戰一下自己的英文能力，可以同步增加自己對於工具的認識，以及參與社群活動累積人脈。</p>
-<p>Nijia 對於開源的熱情在於技術分享：</p>
-<p>Nijia 下班後會固定安排讀書時間，參與開源專案或獨技術文件，非常值得效法，透過熟悉專案可以讓自己更熟悉工具的應用，在會後的 Q &amp; A 剛好分進 Nijia 的組別，很幸運可以問問前輩究竟該如何開始第一個開源專案。Nijia 大大認為開始參與開源專案並不難，甚至可以從最小的 README 之類的文件開始。因此我想重點還是在於研究的耐心，畢竟要找到文件上的錯誤也是需要功力的。</p>
-<p>Davy 對於開源的熱情在於喜歡那項技術：</p>
-<p>Davy 分享參與開源專案最重要的是不要有壓力，而是帶著好玩、有趣的心態參與，不要因為參加而參加。我想這個 mindset 也很重要，因為只有在腦子放鬆的時候才會比較容易看到問題。</p>
-<p>以上三位講者用不同角度帶我進如開源世界，我想可能沒辦法<strong>馬上</strong>有立即的產值，但每天一點一滴累積，不論是技術實力、或是參與社群活動都可以慢慢累積經驗。<br>另外，在工具的應用面向上，我也開始從單純使用工具，到用不同的角度去觀察、瞭解與研究工具，進而發現問題。這樣心態上的調整，也是我覺得很有收穫的地方。</p>
-<p>期待我進入開源世界後的第二個分享文啦</p>
-<p>#Hacktoberfest一起踏入開源的世界<br>參與更多相關活動立即加入【 Developers Hub 開發者學習社群 】👉 <a target="_blank" rel="noopener" href="https://lihi2.cc/hvaBf">https://lihi2.cc/hvaBf</a></p>
+        <h3 id="install-Docker"><a href="#install-Docker" class="headerlink" title="install Docker"></a>install Docker</h3><p><a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/mac-install/">Docker docs</a></p>
+<h3 id="use-docker-to-install-SQL-Server-for-mac-intel-chip"><a href="#use-docker-to-install-SQL-Server-for-mac-intel-chip" class="headerlink" title="use docker to install SQL Server(for mac intel chip)"></a>use docker to install SQL Server(for mac intel chip)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker pull mcr.microsoft.com/mssql/server:2023-latest</span><br></pre></td></tr></table></figure>
+
+<p>Note : You can change the version you want by change the year of latest version</p>
+<h3 id="launch-SQL-Server-image-in-docker"><a href="#launch-SQL-Server-image-in-docker" class="headerlink" title="launch SQL Server image in docker"></a>launch SQL Server image in docker</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --name sql_server_test -e &#x27;ACCEPT_EULA=Y&#x27; -e &#x27;SA_PASSWORD=password&#x27; -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest</span><br></pre></td></tr></table></figure>
+
+<p>Note :</p>
+<ul>
+<li>Docker command Line - Cli</li>
+</ul>
+<h3 id="install-mssql-cli"><a href="#install-mssql-cli" class="headerlink" title="install mssql cli"></a>install mssql cli</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g sql-cli</span><br></pre></td></tr></table></figure>
+
+<p>Note : <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/sql-cli">mssql-cli</a></p>
+<h3 id="use-mssql-cli-to-test-whether-MSSQL-install-success"><a href="#use-mssql-cli-to-test-whether-MSSQL-install-success" class="headerlink" title="use mssql-cli to test whether MSSQL install success"></a>use mssql-cli to test whether MSSQL install success</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mssql -u sa -p password</span><br></pre></td></tr></table></figure>
+
+<h3 id="download-GUI-for-MSSQL-Azure-Data-Studio"><a href="#download-GUI-for-MSSQL-Azure-Data-Studio" class="headerlink" title="download GUI for MSSQL - Azure Data Studio"></a>download GUI for MSSQL - Azure Data Studio</h3><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-tw/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16&tabs=redhat-install,redhat-uninstall">download Azure Data Studio</a></p>
+<h3 id="MSSQL-connection-in-Node-js"><a href="#MSSQL-connection-in-Node-js" class="headerlink" title="MSSQL connection in Node.js"></a>MSSQL connection in Node.js</h3><p><a target="_blank" rel="noopener" href="https://github.com/Kris3131/mssql-node-connection">Github an example of MSSQL connection</a></p>
+<p>Note : Make sure server is running in Docker containers</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="clfffsxqt000rbew6eocr0bhd" data-title="Open Source" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2023/03/19/2023-03-19-setUpMssqul/" data-id="clfffsxr3001ibew61t728a7q" data-title="Set up MSSQL in Node.js" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li></ul>
 
     </footer>
   </div>
@@ -149,19 +145,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/11/07/2022-11-07-install-vim/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Vim, 隨時補充
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/02/2022-11-02-concept/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/11/2023-01-11-changeCareerPath/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">問題回顧(HTML/CSS)</div>
+      <div class="article-nav-title">跳痛 - 轉職工程師不容易</div>
     </a>
   
 </nav>

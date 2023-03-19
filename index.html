@@ -86,6 +86,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2023-03-19-setUpMssqul" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/19/2023-03-19-setUpMssqul/" class="article-date">
+  <time class="dt-published" datetime="2023-03-18T16:00:00.000Z" itemprop="datePublished">2023-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/19/2023-03-19-setUpMssqul/">Set up MSSQL in Node.js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="install-Docker"><a href="#install-Docker" class="headerlink" title="install Docker"></a>install Docker</h3><p><a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/mac-install/">Docker docs</a></p>
+<h3 id="use-docker-to-install-SQL-Server-for-mac-intel-chip"><a href="#use-docker-to-install-SQL-Server-for-mac-intel-chip" class="headerlink" title="use docker to install SQL Server(for mac intel chip)"></a>use docker to install SQL Server(for mac intel chip)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker pull mcr.microsoft.com/mssql/server:2023-latest</span><br></pre></td></tr></table></figure>
+
+<p>Note : You can change the version you want by change the year of latest version</p>
+<h3 id="launch-SQL-Server-image-in-docker"><a href="#launch-SQL-Server-image-in-docker" class="headerlink" title="launch SQL Server image in docker"></a>launch SQL Server image in docker</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --name sql_server_test -e &#x27;ACCEPT_EULA=Y&#x27; -e &#x27;SA_PASSWORD=password&#x27; -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest</span><br></pre></td></tr></table></figure>
+
+<p>Note :</p>
+<ul>
+<li>Docker command Line - Cli</li>
+</ul>
+<h3 id="install-mssql-cli"><a href="#install-mssql-cli" class="headerlink" title="install mssql cli"></a>install mssql cli</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g sql-cli</span><br></pre></td></tr></table></figure>
+
+<p>Note : <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/sql-cli">mssql-cli</a></p>
+<h3 id="use-mssql-cli-to-test-whether-MSSQL-install-success"><a href="#use-mssql-cli-to-test-whether-MSSQL-install-success" class="headerlink" title="use mssql-cli to test whether MSSQL install success"></a>use mssql-cli to test whether MSSQL install success</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mssql -u sa -p password</span><br></pre></td></tr></table></figure>
+
+<h3 id="download-GUI-for-MSSQL-Azure-Data-Studio"><a href="#download-GUI-for-MSSQL-Azure-Data-Studio" class="headerlink" title="download GUI for MSSQL - Azure Data Studio"></a>download GUI for MSSQL - Azure Data Studio</h3><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-tw/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16&tabs=redhat-install,redhat-uninstall">download Azure Data Studio</a></p>
+<h3 id="MSSQL-connection-in-Node-js"><a href="#MSSQL-connection-in-Node-js" class="headerlink" title="MSSQL connection in Node.js"></a>MSSQL connection in Node.js</h3><p><a target="_blank" rel="noopener" href="https://github.com/Kris3131/mssql-node-connection">Github an example of MSSQL connection</a></p>
+<p>Note : Make sure server is running in Docker containers</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2023/03/19/2023-03-19-setUpMssqul/" data-id="clfffsxr3001ibew61t728a7q" data-title="Set up MSSQL in Node.js" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2023-01-11-changeCareerPath" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/01/11/2023-01-11-changeCareerPath/" class="article-date">
@@ -138,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2023/01/11/2023-01-11-changeCareerPath/" data-id="clcr9oois000yv1w6dvlx502m" data-title="跳痛 - 轉職工程師不容易" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2023/01/11/2023-01-11-changeCareerPath/" data-id="clfffsxqx0011bew6gtsl31tk" data-title="跳痛 - 轉職工程師不容易" class="article-share-link">Share</a>
       
       
       
@@ -192,76 +250,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/21/2022-11-21-RunningSumof1dArray/" data-id="clcr9ooit0010v1w62imdar63" data-title="LeetCode - Running Sum Of 1d Array" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/21/2022-11-21-RunningSumof1dArray/" data-id="clfffsxqw000zbew6f3stckz7" data-title="LeetCode - Running Sum Of 1d Array" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2022-11-07-install-vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/07/2022-11-07-install-vim/" class="article-date">
-  <time class="dt-published" datetime="2022-11-06T16:00:00.000Z" itemprop="datePublished">2022-11-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/07/2022-11-07-install-vim/">Vim, 隨時補充</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>2022-11-07 </p>
-<h3 id="install-vim"><a href="#install-vim" class="headerlink" title="install vim"></a>install vim</h3><p>用部落格來練練 vim </p>
-<p>網路上有許多入門資源，我直接參考 <a target="_blank" rel="noopener" href="https://github.com/iggredible/Learn-Vim">learn-vim</a></p>
-<p>先 install 吧</p>
-<p>有兩個資源可以參考：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.vim.org/download.php">vim-web-side</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/vim/vim">vim-github</a></li>
-</ol>
-<p>我覺得 GitHub 比較清楚，依照電腦系統不同，有不一樣的安裝方式，以下是 Mac intel 晶片的安裝方式</p>
-<ol>
-<li><p><a target="_blank" rel="noopener" href="https://brew.sh/index_zh-tw">安裝 brew</a></p>
-</li>
-<li><p><code>brew install vim</code></p>
-</li>
-<li><p>安裝結束：<strong>安裝的時間滿久的，不確定是我電腦跑得比較慢，還是本身安裝時間就長</strong></p>
-</li>
-</ol>
-<p>簡單指令介紹</p>
-<ul>
-<li>開啟檔案 ： <code>vim fileName</code></li>
-<li>退出： <code>:q</code></li>
-<li>存檔： <code>:w</code></li>
-</ul>
-<p>兩個指令可以同時使用，<code>:wq</code> -&gt; 存檔並退出</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-install-vim/" data-id="clcr9ooiq000uv1w6gtpt9qan" data-title="Vim, 隨時補充" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li></ul>
 
     </footer>
   </div>
@@ -357,11 +350,76 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/" data-id="clcr9ooir000wv1w6htdv0vz5" data-title="Leetcode 隨時更新" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-leetcode/" data-id="clfffsxqu000ubew60csn91mh" data-title="Leetcode 隨時更新" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/concept/" rel="tag">concept</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2022-11-07-install-vim" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/07/2022-11-07-install-vim/" class="article-date">
+  <time class="dt-published" datetime="2022-11-06T16:00:00.000Z" itemprop="datePublished">2022-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/07/2022-11-07-install-vim/">Vim, 隨時補充</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>2022-11-07 </p>
+<h3 id="install-vim"><a href="#install-vim" class="headerlink" title="install vim"></a>install vim</h3><p>用部落格來練練 vim </p>
+<p>網路上有許多入門資源，我直接參考 <a target="_blank" rel="noopener" href="https://github.com/iggredible/Learn-Vim">learn-vim</a></p>
+<p>先 install 吧</p>
+<p>有兩個資源可以參考：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.vim.org/download.php">vim-web-side</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vim/vim">vim-github</a></li>
+</ol>
+<p>我覺得 GitHub 比較清楚，依照電腦系統不同，有不一樣的安裝方式，以下是 Mac intel 晶片的安裝方式</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://brew.sh/index_zh-tw">安裝 brew</a></p>
+</li>
+<li><p><code>brew install vim</code></p>
+</li>
+<li><p>安裝結束：<strong>安裝的時間滿久的，不確定是我電腦跑得比較慢，還是本身安裝時間就長</strong></p>
+</li>
+</ol>
+<p>簡單指令介紹</p>
+<ul>
+<li>開啟檔案 ： <code>vim fileName</code></li>
+<li>退出： <code>:q</code></li>
+<li>存檔： <code>:w</code></li>
+</ul>
+<p>兩個指令可以同時使用，<code>:wq</code> -&gt; 存檔並退出</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/11/07/2022-11-07-install-vim/" data-id="clfffsxqv000wbew6hyl3gkg1" data-title="Vim, 隨時補充" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li></ul>
 
     </footer>
   </div>
@@ -417,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="clcr9ooip000pv1w66mz40nf9" data-title="Open Source" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/05/2022-11-05-open-source/" data-id="clfffsxqt000rbew6eocr0bhd" data-title="Open Source" class="article-share-link">Share</a>
       
       
       
@@ -474,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept/" data-id="clcr9ooio000nv1w69xto6kll" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept/" data-id="clfffsxqq000lbew685j66bk7" data-title="問題回顧(HTML/CSS)" class="article-share-link">Share</a>
       
       
       
@@ -568,7 +626,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept_javascript/" data-id="clcr9ooip000rv1w61p8l53wl" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/11/02/2022-11-02-concept_javascript/" data-id="clfffsxqr000nbew6f7y57aln" data-title="問題回顧(JavaScript)" class="article-share-link">Share</a>
       
       
       
@@ -633,7 +691,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-AC-S3/" data-id="clcr9ooim000jv1w69qdsbpqc" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-AC-S3/" data-id="clfffsxqp000jbew65vtzd2fr" data-title="回顧 - 原來已經走了那麼遠了" class="article-share-link">Share</a>
       
       
       
@@ -696,63 +754,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="clcr9ooin000lv1w6e6py0x9d" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="clfffsxqs000pbew6dlxhcfrj" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2022-09-30-AmazingTalker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/09/30/2022-09-30-AmazingTalker/" class="article-date">
-  <time class="dt-published" datetime="2022-09-29T16:00:00.000Z" itemprop="datePublished">2022-09-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/09/30/2022-09-30-AmazingTalker/">企業參訪：AmazingTalker</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>我滑就報名了這次 AC 舉辦的企業參訪，在去公司之前我對於 AmazingTalker 粗淺的認識停留在 阿滴跟滴妹？印象中，某次經過忠孝復興還是哪有非常大面的捷運廣告，但那已經很久遠了。</p>
-<p>行前為了確保我對公司有一定認識，我註冊了公司的帳號密碼，我沒有開始第一堂課(汗顏)，因為我現在很拮据阿(哭哭)</p>
-<p>進入主題了</p>
-<p>活動主要有三個認識，</p>
-<ol>
-<li>從Abner的角度認識AmazingTalker、</li>
-<li>從Tony的角度認識CTO角色與從管理角度來看對於工程師的期待，</li>
-<li>最後是與同學間交流分享。</li>
-</ol>
-<p>第一個認識，Abner開場就告訴大家不要隨便創業，但從他的分享聽得出來他真的“不是隨便”創業，公司照顧同事需求，也願意提供同事更棒的工作環境（托育空間的想法真的很友善），更重要的是公司更勇於嘗試。Abner提到AmazingTalker之所以成功在於對於嘗試的迭代速度很快，發現有錯誤，要先退一步找出錯誤的原因，然後規劃優化的方法，盡快修正。這一點與寫程式很像，程式在一定架構下可以透過不斷嘗試不同做法，但不是所有做法都是“好的”做法，透過別人的建議，可以在一起討論出更好的做法。</p>
-<p>第二個認識，Tony 分享工程師團隊的組織編制，AT 在團隊中安排 mentor 的制度，讓剛踏入全新領域的新進 Junior 工程師很有安全感，可以在有資深前輩的帶領下，更了解公司產品、怎麼優化自己程式碼的品質、一起尋找解決的問題本質，找出最適合解決方案。在這樣的合作關係下，可以在公司學到很多專業技術（公司還有圖書館，未來有機會進入 AT 就可以省一筆技術類的書費）。</p>
-<p>第三個認識，同學間的交流分享，這次小組討論有十個成員，大家來自不同背景，有學校老師、半導體工程師、業務等等，轉職對大家來說都是一個新的嘗試，雖然都有面臨到一些困境，但大家都滿正向面對挑戰，在轉職的路上有機會和同學交流很溫暖，倒也不是相互取暖，而是有些掙扎已經走過可以有機會分享給其他人，也些可能還沒走過，但未來要是遇到也比較不擔心。<br>昨天晚上收穫滿滿，讓我可以更冷靜的面對接下來的挑戰。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="clcr9ooil000hv1w65xqodcmh" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
 
     </footer>
   </div>
@@ -790,7 +796,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Base/" style="font-size: 10px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 15px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
+      <a href="/tags/Data-Base/" style="font-size: 13.33px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 16.67px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
     </div>
   </div>
 
@@ -799,7 +805,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -812,6 +818,10 @@
       <ul>
         
           <li>
+            <a href="/2023/03/19/2023-03-19-setUpMssqul/">Set up MSSQL in Node.js</a>
+          </li>
+        
+          <li>
             <a href="/2023/01/11/2023-01-11-changeCareerPath/">跳痛 - 轉職工程師不容易</a>
           </li>
         
@@ -820,15 +830,11 @@
           </li>
         
           <li>
-            <a href="/2022/11/07/2022-11-07-install-vim/">Vim, 隨時補充</a>
-          </li>
-        
-          <li>
             <a href="/2022/11/07/2022-11-07-leetcode/">Leetcode 隨時更新</a>
           </li>
         
           <li>
-            <a href="/2022/11/05/2022-11-05-open-source/">Open Source</a>
+            <a href="/2022/11/07/2022-11-07-install-vim/">Vim, 隨時補充</a>
           </li>
         
       </ul>
