@@ -86,6 +86,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2022-10-20-tweets-project" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/20/2022-10-20-tweets-project/" class="article-date">
+  <time class="dt-published" datetime="2022-10-19T16:00:00.000Z" itemprop="datePublished">2022-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/10/20/2022-10-20-tweets-project/">好！完成了 ! Tweets 專案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我們這組是全端開發 Tweets 專案，謝謝組員 Allen &#x2F; Elliot 兩位夥伴一起完成這次專案。<br>我主要負責功能，因為功能彼此交織，有點難細分就是誰負責哪些功能。<br>不過在此附上專案成果：<br><a target="_blank" rel="noopener" href="https://alphitter-eak.herokuapp.com/signin">LiveDemo</a> 與 <a target="_blank" rel="noopener" href="https://github.com/elliotcs30/twitter-fullstack-2020">GitHub</a> 連結</p>
+<p><img src="/../images/tweets-project.png" alt="tweets"></p>
+<h2 id="事情沒有那麼簡單"><a href="#事情沒有那麼簡單" class="headerlink" title="事情沒有那麼簡單"></a>事情沒有那麼簡單</h2><p>首先，這是第一次團體協作，有共有三個組員，我們素未謀面，要達到牢不可破的默契，是有點難度，中間有摩擦、有衝突、有放下，我想這才是團體專案最重要的功課。這篇文章會分成三個部分，首先，有幾件事情必須在正式實作前完成，第二，實作過程，與最後，未來如何做得更好。</p>
+<h3 id="Definition-of-Done-DoD"><a href="#Definition-of-Done-DoD" class="headerlink" title="Definition of Done (DoD)"></a>Definition of Done (DoD)</h3><p><img src="/../images/acceptance.png" alt="acceptance"><br>首先，我們透過 User Story 制定出 Definition of Done(DOD)</p>
+<p>大家一定要對於目標有一定共識，不然開發的過程會增加許多溝通成本，那制定後，一定就沒有問題嗎？也不是這樣說，有時候計劃會趕不上變化，後面再多做說明。</p>
+<h3 id="User-Flowchart"><a href="#User-Flowchart" class="headerlink" title="User Flowchart"></a>User Flowchart</h3><p><img src="/../images/user_flowchart.png" alt="user_flowchart"><br>透過教案提供的 UI 設計圖，我們需要清楚知道，網站的流程會如何進行，按下 Button 後會轉跳什麼頁面，點擊畫面的連結會轉跳到什麼頁面 …，我覺得在繪製 User Flowchart 的過程可以更快的瞭解專案的全貌，視覺得呈現專案的功能與需求。</p>
+<h3 id="ERD"><a href="#ERD" class="headerlink" title="ERD"></a>ERD</h3><p><img src="/../images/tweets_erd.png" alt="tweets_erd"><br>ERD 幫助視覺化呈現 Model 關聯性，對於後續建立 Model 關聯性很有幫助。</p>
+<h2 id="進入開發階段"><a href="#進入開發階段" class="headerlink" title="進入開發階段"></a>進入開發階段</h2><p>進入開發階段，紀錄幾個我比較印象深刻的經驗：</p>
+<p><img src="/../images/tweets_trello.png" alt="tweets_trello"></p>
+<h3 id="快馬加鞭"><a href="#快馬加鞭" class="headerlink" title="快馬加鞭"></a>快馬加鞭</h3><p>當完成上述的前置作業，只剩一個多禮拜的開發時間。由於有 sprint check-in 的時間壓力，因此，除了加速開發速度，沒有別的。但加速開發速度，勢必有些畫面細節無法兼顧，謝謝 Allen 一肩扛起畫面的調整。</p>
+<h3 id="Code-Convention"><a href="#Code-Convention" class="headerlink" title="Code Convention"></a>Code Convention</h3><p><img src="https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_1280.png" alt="coding"></p>
+<p>每個人都有不同的風格，可以看到不同的寫法，但是以整個專案來說，會有點難以維護。但是因為時間有限，要在短時間擬定出一致的 Coding Style 會有難度。也只能邊做邊改，盡量維持一致的 Code Convention。</p>
+<h3 id="隨時更新進度"><a href="#隨時更新進度" class="headerlink" title="隨時更新進度"></a>隨時更新進度</h3><p>每日的 Standup meeting 讓夥伴掌握彼此進度，在透過 Trello 管理 tickets，哪些事情還沒做，哪些事情需要先做…</p>
+<blockquote>
+<p>昨天做了哪些事 | 今天預計要完成的事 | 有沒有遇到困難</p>
+</blockquote>
+<p>但這個過程中有發現，有時候遇到問題不一定會及時提出，會先嘗試自己解決，但未必能解決。最好的辦法還是設定停損點，花點時間釐清問題，假如仍然不行，就必須趕快丟出來詢問老師或同學。</p>
+<h3 id="找蟲"><a href="#找蟲" class="headerlink" title="找蟲"></a>找蟲</h3><p>寫程式有趣的是自己覺得沒有問題，但畫面有問題，來吧，來找蟲吧～<br>到後期對於整個專案更了解，所以找蟲的時間可以省下不少，而且很有成就感，但反觀專案前期，在茫茫程式碼裡找蟲，結果通常是找到自己。</p>
+<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><p>其實專案進行的過程中已經有一些摩擦，有些人可能會怕，想說會吵架，好可怕。但要銘記一件事在心：目標導向為主！</p>
+<h3 id="Git-情境與指令要熟"><a href="#Git-情境與指令要熟" class="headerlink" title="Git 情境與指令要熟"></a>Git 情境與指令要熟</h3><p>Git 協作過程一定會碰到衝突，解完衝突，功能壞了，畫面歪了。或是離主幹太遠，回不來…太多情境都是之前一個人沒辦法實驗的。等到遇到又有點不知所措，只好趕快 google 指令。</p>
+<h3 id="確認認知"><a href="#確認認知" class="headerlink" title="確認認知"></a>確認認知</h3><p>有時候雖然有明確的目標(DOD)，但彼此的認知可能會不一樣，可能有些人會對於畫面比較要求，有些人可能對於功能的完整性更在乎。到最後一定要有個取捨，取捨已可以成功交出專案為目標。剩下的，針鋒相對就沒有那麼重要。因此，有衝突很正常，但最重要的是成功交付專案。因此誰在乎畫面，或誰在乎功能，就不是問題了。</p>
+<p>這次團體專案協作，技術層面不需要太擔心，因為有不熟的技術，趕快回頭看教案內容，看看網路上有沒有相關的 simple code 參考，要是卡關太久，馬上詢問老問。</p>
+<p>最後，相信所有的事，當下看起來很難，事過境遷後，就換下一關，然後會發現自己升等了，轉換到不同層級關卡的循環。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/10/20/2022-10-20-tweets-project/" data-id="clh4f4jd7000hb5w63nxdegbj" data-title="好！完成了 ! Tweets 專案" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-2022-09-30-AmazingTalker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/30/2022-09-30-AmazingTalker/" class="article-date">
@@ -124,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="clfffsxqm000fbew669c673cl" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/30/2022-09-30-AmazingTalker/" data-id="clh4f4jd00008b5w63wtsf9wq" data-title="企業參訪：AmazingTalker" class="article-share-link">Share</a>
       
       
       
@@ -178,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/17/2022-09-17-Git/" data-id="clfffsxqo000hbew69pfvdt4v" data-title="Git" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/17/2022-09-17-Git/" data-id="clh4f4jd3000db5w6gk7q0pk7" data-title="Git" class="article-share-link">Share</a>
       
       
       
@@ -239,11 +302,54 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/09/04/2022-09-04-expense-tracker/" data-id="clfffsxql000dbew6gkbve586" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/09/04/2022-09-04-expense-tracker/" data-id="clh4f4jd2000bb5w6g2o7cmjn" data-title="個人專案 - 記帳本" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2022-08-11-expressHandlebarsEngine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/11/2022-08-11-expressHandlebarsEngine/" class="article-date">
+  <time class="dt-published" datetime="2022-08-10T16:00:00.000Z" itemprop="datePublished">2022-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/08/11/2022-08-11-expressHandlebarsEngine/">express-handlebars ERROR</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#101;&#x78;&#x70;&#114;&#x65;&#x73;&#115;&#45;&#x68;&#x61;&#110;&#100;&#108;&#x65;&#x62;&#97;&#114;&#115;&#x40;&#54;&#x2e;&#x30;&#x2e;&#x36;">&#101;&#x78;&#x70;&#114;&#x65;&#x73;&#115;&#45;&#x68;&#x61;&#110;&#100;&#108;&#x65;&#x62;&#97;&#114;&#115;&#x40;&#54;&#x2e;&#x30;&#x2e;&#x36;</a></strong> 在設定 view engine 出現 error message</p>
+<p><code>app.engine(&#39;hbs&#39;, exphbs(&#123; defaultLayout: &#39;main&#39;, extname: &#39;.hbs&#39; &#125;)) </code><br><code>TypeError: exphbs is not a function</code></p>
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> exphbs = <span class="built_in">require</span>(<span class="string">&#x27;express-handlebars&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">PORT</span> = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">engine</span>(<span class="string">&#x27;hbs&#x27;</span>, exphbs.<span class="title function_">engine</span>(&#123; <span class="attr">defaultLayout</span>: <span class="string">&#x27;main&#x27;</span>, <span class="attr">extname</span>: <span class="string">&#x27;.hbs&#x27;</span> &#125;));</span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;hbs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">`Hello, World`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Example app listening on http://localhost:<span class="subst">$&#123;PORT&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-expressHandlebarsEngine/" data-id="clh4f4jcy0005b5w611011rwt" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li></ul>
 
     </footer>
   </div>
@@ -329,54 +435,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-selfTaught/" data-id="clfffsxqi0009bew6fxst7aw7" data-title="個人專案 - 短網址" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-selfTaught/" data-id="clh4f4jd10009b5w6bj1a25n7" data-title="個人專案 - 短網址" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/projects/" rel="tag">projects</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-2022-08-11-expressHandlebarsEngine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/11/2022-08-11-expressHandlebarsEngine/" class="article-date">
-  <time class="dt-published" datetime="2022-08-10T16:00:00.000Z" itemprop="datePublished">2022-08-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/11/2022-08-11-expressHandlebarsEngine/">express-handlebars ERROR</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="設定-view-engine-ERROR"><a href="#設定-view-engine-ERROR" class="headerlink" title="設定 view engine ERROR"></a>設定 view engine ERROR</h1><p><strong><a href="mailto:&#x65;&#x78;&#112;&#114;&#101;&#115;&#115;&#45;&#x68;&#x61;&#x6e;&#100;&#108;&#x65;&#98;&#97;&#x72;&#115;&#64;&#x36;&#46;&#x30;&#x2e;&#54;">&#x65;&#x78;&#112;&#114;&#101;&#115;&#115;&#45;&#x68;&#x61;&#x6e;&#100;&#108;&#x65;&#98;&#97;&#x72;&#115;&#64;&#x36;&#46;&#x30;&#x2e;&#54;</a></strong> 在設定 view engine 出現 error message</p>
-<p><code>app.engine(&#39;hbs&#39;, exphbs(&#123; defaultLayout: &#39;main&#39;, extname: &#39;.hbs&#39; &#125;)) </code><br><code>TypeError: exphbs is not a function</code></p>
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> exphbs = <span class="built_in">require</span>(<span class="string">&#x27;express-handlebars&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">PORT</span> = <span class="number">3000</span>;</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">engine</span>(<span class="string">&#x27;hbs&#x27;</span>, exphbs.<span class="title function_">engine</span>(&#123; <span class="attr">defaultLayout</span>: <span class="string">&#x27;main&#x27;</span>, <span class="attr">extname</span>: <span class="string">&#x27;.hbs&#x27;</span> &#125;));</span><br><span class="line">app.<span class="title function_">set</span>(<span class="string">&#x27;view engine&#x27;</span>, <span class="string">&#x27;hbs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.<span class="title function_">send</span>(<span class="string">`Hello, World`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="variable constant_">PORT</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Example app listening on http://localhost:<span class="subst">$&#123;PORT&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/08/11/2022-08-11-expressHandlebarsEngine/" data-id="clfffsxqk000cbew6fxjv8sek" data-title="express-handlebars ERROR" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li></ul>
 
     </footer>
   </div>
@@ -427,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/06/30/2022-06-30-Node.jsLiveServer/" data-id="clfffsxqd0004bew64asg25hi" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/06/30/2022-06-30-Node.jsLiveServer/" data-id="clh4f4jcx0004b5w62rze5edq" data-title="Node.js Server &gt;&gt;&gt; Express" class="article-share-link">Share</a>
       
       
       
@@ -490,7 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/06/20/2022-06-20-HTML/" data-id="clfffsxqh0008bew6cjr6a6xq" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/06/20/2022-06-20-HTML/" data-id="clh4f4jcs0001b5w60lwfckgr" data-title="HTML 的 head 有些什麼" class="article-share-link">Share</a>
       
       
       
@@ -633,7 +696,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/04/28/2022-04-28-PostgreSQL/" data-id="clfffsxqe0005bew66s6n0eh5" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/04/28/2022-04-28-PostgreSQL/" data-id="clh4f4jck0000b5w6c3eyezm6" data-title="Rails default database SQLite3 switch to PostgreSQL" class="article-share-link">Share</a>
       
       
       
@@ -745,7 +808,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kris3131.github.io/2022/04/20/2022-04-20-Routes-MVC/" data-id="clfffsxq80001bew62cri6j1h" data-title="Routes / MVC" class="article-share-link">Share</a>
+      <a data-url="https://kris3131.github.io/2022/04/20/2022-04-20-Routes-MVC/" data-id="clh4f4jcw0003b5w6guk68yco" data-title="Routes / MVC" class="article-share-link">Share</a>
       
       
       
@@ -777,7 +840,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Base/" rel="tag">Data-Base</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concept/" rel="tag">concept</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-message/" rel="tag">error-message</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/projects/" rel="tag">projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/text-editor/" rel="tag">text-editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/though/" rel="tag">though</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thoughts/" rel="tag">thoughts</a></li></ul>
     </div>
   </div>
 
@@ -787,7 +850,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Base/" style="font-size: 13.33px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 16.67px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
+      <a href="/tags/Data-Base/" style="font-size: 13.33px;">Data-Base</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/concept/" style="font-size: 20px;">concept</a> <a href="/tags/error-message/" style="font-size: 10px;">error-message</a> <a href="/tags/projects/" style="font-size: 16.67px;">projects</a> <a href="/tags/text-editor/" style="font-size: 10px;">text-editor</a> <a href="/tags/though/" style="font-size: 10px;">though</a> <a href="/tags/thoughts/" style="font-size: 20px;">thoughts</a>
     </div>
   </div>
 
@@ -796,7 +859,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li></ul>
     </div>
   </div>
 
@@ -809,6 +872,10 @@
       <ul>
         
           <li>
+            <a href="/2023/05/01/2023-05-01-become_software_engineer_for_three_month/">轉職的職涯規劃：你只是 entry level 別想太多</a>
+          </li>
+        
+          <li>
             <a href="/2023/03/19/2023-03-19-setUpMssqul/">Set up MSSQL in Node.js</a>
           </li>
         
@@ -818,10 +885,6 @@
         
           <li>
             <a href="/2022/11/21/2022-11-21-RunningSumof1dArray/">LeetCode - Running Sum Of 1d Array</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/07/2022-11-07-leetcode/">Leetcode 隨時更新</a>
           </li>
         
           <li>
